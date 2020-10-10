@@ -1,4 +1,5 @@
 dotfiles_dir = ".dotfiles"
+gpg_user_id = "kajetan.puchalski@tuta.io"
 
 [settings]
 vars = [ "themes/gruvbox.toml" ]

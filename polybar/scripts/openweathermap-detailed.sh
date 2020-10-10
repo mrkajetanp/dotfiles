@@ -22,7 +22,7 @@ get_icon() {
     echo $icon
 }
 
-KEY="c8f6c7c7ec8e04238cfe03ae30469ba1"
+KEY="__[OpenWeatherMapKey]__"
 CITY="Glasgow,United Kingdom"
 UNITS="metric"
 SYMBOL="°"
