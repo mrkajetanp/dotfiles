@@ -1,0 +1,54 @@
+{
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "editor.fontFamily": "Fira Code Medium",
+  // "editor.fontFamily": "InputMono Medium",
+  "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+  "window.zoomLevel": 0,
+  "keyboard.dispatch": "keyCode",
+  "editor.codeActionsOnSave": {},
+  "editor.wordWrapColumn": 100,
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "vscode-icons",
+  "files.associations": {},
+  "java.semanticHighlighting.enabled": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "github.remoteName": "upstream",
+  "go.formatTool": "goimports",
+  "python.languageServer": "Microsoft",
+  "vsicons.dontShowNewVersionMessage": true,
+  "vim.sneak": true,
+  "vim.sneakReplacesF": true,
+  "vim.sneakUseIgnorecaseAndSmartcase": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["#"],
+      "after": ["$"]
+    },
+    {
+      "before": ["$"],
+      "after": ["0"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<esc>"]
+    }
+  ],
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "fe41a16670284b37d347889f06de23f0947b778e255f238e071a682738a60db6",
+      "allowed": true
+    },
+    {
+      "sha256": "16caeaf66d57a0d1d2087fef6a97efa62de8da69afa5b908f40db35afc4342da",
+      "allowed": true
+    }
+  ],
+  "html.format.enable": false,
+  "editor.formatOnSave": true,
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.darkPalette": "original"
+}

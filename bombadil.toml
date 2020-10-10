@@ -9,10 +9,13 @@ hooks = []
 
 vimrc = { source = "vim/.vimrc", target = ".vimrc" }
 nvim = { source = "vim/nvim", target = ".config/nvim" }
+vim_autoload = { source = "vim/autoload", target = ".vim/autoload" }
+vim_colors = { source = "vim/colors", target = ".vim/colors" }
 
 zshrc = { source = "zsh/.zshrc", target = ".zshrc" }
-vim_colors = { source = "vim/colors", target = ".vim/colors" }
+
 fonts_conf = { source = "fonts/fonts.conf", target = ".fonts.conf" }
+fonts = { source = "fonts/Fonts", target = ".Fonts" }
 
 doom_emacs = { source = "doom.d", target = ".doom.d" }
 bin = { source = "bin", target = ".bin" }
@@ -40,6 +43,9 @@ spicetify = { source = "spicetify", target = ".config/spicetify" }
 
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 xresources = { source = "x/Xresources", target = ".Xresources" }
+xprofile = { source = "x/xprofile", target = ".xprofile" }
 offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" }
 
+dwm = { source = "dwm", target = ".dwm" }
+vscode = { source = "vscode/settings.json", target = ".config/Code - OSS/User/settings.json" }
 # = { source = "", target = "" }
