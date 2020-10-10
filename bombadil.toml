@@ -9,7 +9,6 @@ hooks = [ "dwmc quit 1" ]
 
 vimrc = { source = "vim/.vimrc", target = ".vimrc" }
 nvim = { source = "vim/nvim", target = ".config/nvim" }
-vim_autoload = { source = "vim/autoload", target = ".vim/autoload" }
 vim_colors = { source = "vim/colors", target = ".vim/colors" }
 
 zshrc = { source = "zsh/.zshrc", target = ".zshrc" }
