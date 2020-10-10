@@ -1,9 +1,9 @@
-dotfiles_dir = ".bombadil"
+dotfiles_dir = ".dotfiles"
 
 [settings]
 vars = [ "themes/gruvbox.toml" ]
 
-hooks = []
+hooks = [ "dwmc quit 1" ]
 
 [settings.dots]
 
@@ -46,6 +46,6 @@ xresources = { source = "x/Xresources", target = ".Xresources" }
 xprofile = { source = "x/xprofile", target = ".xprofile" }
 offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" }
 
-dwm = { source = "dwm", target = ".dwm" }
+dwm = { source = "dwm", target = ".config/dwm" }
 vscode = { source = "vscode/settings.json", target = ".config/Code - OSS/User/settings.json" }
 # = { source = "", target = "" }
