@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+rofi -modi "clipboard:greenclip print" -theme slate-gruvbox -show clipboard -run-command '{cmd}'

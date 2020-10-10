@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+pkill greenclip
+greenclip clear
+greenclip daemon &

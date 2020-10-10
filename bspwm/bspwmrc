@@ -1,0 +1,69 @@
+#! /bin/sh
+
+setxkbmap -layout pl -variant kdvp
+lxappearance &
+
+xset r rate 250 60
+
+xrandr --output eDP-1 --primary --output DP-1 --left-of eDP-1 --rotate left
+
+nitrogen --head=0 --set-scaled /home/kajetan/Pictures/Wallpapers/Brighter/mountain_lake_bright.jpg
+nitrogen --head=1 --set-scaled /home/kajetan/Pictures/Wallpapers/Brighter/0079-side.jpg
+
+bspc monitor eDP-1 -d Term Web Finance Code Notes Docs Media Org Others Games
+bspc monitor DP-1 -d Unus Duo Tres Quattuor Quinque Sex Septem Octo Novem Decem
+
+bspc config border_width 4
+bspc config window_gap 10
+bspc config split_ratio 0.52
+bspc config border_radius 8
+
+bspc config borderless_monocle false
+bspc config gapless_monocle false
+bspc config focus_follows_pointer true
+
+bspc config normal_border_color "#4C566A"
+bspc config focused_border_color "#ABB1BB"
+
+bspc config pointer_modifier mod1
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_corner
+
+# window rules
+
+# bspc rule -a scratchpad sticky=on state=floating hidden=on
+
+bspc rule -a feh:feh state=floating
+bspc rule -a Virt-manager:virt-manager state=floating
+bspc rule -a kdeconnect.app:kdeconnect-app state=floating
+bspc rule -a firefox:Toolkit state=floating sticky=on # Firefox Picture-in-Picture
+bspc rule -a smplayer state=floating sticky=on
+bspc rule -a Movie-monad:movie-monad state=floating sticky=on
+bspc rule -a Emacs:emacs state=tiled
+bspc rule -a Zathura:org.pwmt.zathura state=tiled
+
+# custom execs
+
+killall lxappearance
+
+killall sxhkd
+sxhkd &
+
+picom --experimental-backends &
+lxsession &
+dunst &
+
+killall redshift
+redshift -l 55.86:-4.25 &
+
+/home/kajetan/.config/polybar/launch.sh
+
+st &
+
+eval "$(rbenv init -)"
+
+# Initialise the ssh agent
+
+eval ssh-agent $SHELL
+ssh-add /home/kajetan/.ssh/id_rsa
+

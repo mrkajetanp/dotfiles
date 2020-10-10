@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+bspc wm -l /home/kajetan/.config/bspwm/layouts/canvas.json
+/home/kajetan/.config/bspwm/layouts/rules.sh
+bspc config border_radius 10

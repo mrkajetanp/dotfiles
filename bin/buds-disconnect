@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+bluetoothctl disconnect F4:7D:EF:8B:1A:3E
+bluetoothctl power off
+doas systemctl stop bluetooth

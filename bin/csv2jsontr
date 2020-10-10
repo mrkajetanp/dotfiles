@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+a=$(echo "import pandas;print(pandas.read_csv("\'$1\'", encoding=\"utf-8\", index_col=0).to_json())" | python)
+result=$(echo "$a" | python -m json.tool)
+echo "$result"

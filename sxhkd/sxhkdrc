@@ -1,0 +1,249 @@
+#
+# bspwm hotkeys
+#
+
+alt + shift + {x,r}
+  bspc {quit,wm -r}
+
+alt + r
+  bspc node @parent -R 90
+
+alt + shift + c
+  bspc node @/ -C forward
+
+alt + q
+  bspc node -c
+
+alt + shift + q
+  bspc node -k
+
+alt + m
+  bspc desktop -l next
+
+alt + apostrophe
+  bspc node -s last
+
+alt + g
+  bspc node -s biggest
+
+#
+# switching workspaces
+#
+
+alt + ampersand
+  bspc desktop --focus Term
+alt + shift + ampersand
+  bspc node -d Term
+alt + ctrl + ampersand
+  bspc desktop --focus Unus
+alt + ctrl + shift + ampersand
+  bspc node -d Unus
+
+alt + bracketleft
+  bspc desktop --focus Web
+alt + shift + bracketleft
+  bspc node -d Web
+alt + ctrl + bracketleft
+  bspc desktop --focus Duo
+alt + ctrl + shift + bracketleft
+  bspc node -d Duo
+
+alt + braceleft
+  bspc desktop --focus Finance
+alt + shift + braceleft
+  bspc node -d Finance
+alt + ctrl + braceleft
+  bspc desktop --focus Tres
+alt + ctrl + shift + braceleft
+  bspc node -d Tres
+
+alt + braceright
+  bspc desktop --focus Code
+alt + shift + braceright
+  bspc node -d Code
+alt + ctrl + braceright
+  bspc desktop --focus Quattuor
+alt + ctrl + shift + braceright
+  bspc node -d Quattuor
+
+alt + parenleft
+  bspc desktop --focus Notes
+alt + shift + parenleft
+  bspc node -d Notes
+alt + ctrl + parenleft
+  bspc desktop --focus Quinque
+alt + ctrl + shift + parenleft
+  bspc node -d Quinque
+
+alt + equal
+  bspc desktop --focus Docs
+alt + shift + equal
+  bspc node -d Docs
+alt + ctrl + equal
+  bspc desktop --focus Sex
+
+alt + asterisk
+  bspc desktop --focus Media
+alt + shift + asterisk
+  bspc node -d Media
+alt + ctrl + asterisk
+  bspc desktop --focus Septem
+
+alt + parenright
+  bspc desktop --focus Org
+alt + shift + parenright
+  bspc node -d Org
+alt + ctrl + parenright
+  bspc desktop --focus Octo
+
+alt + plus
+  bspc desktop --focus Others
+alt + shift + plus
+  bspc node -d Others
+alt + ctrl + plus
+  bspc desktop --focus Novem
+
+alt + bracketright
+  bspc desktop --focus Games
+alt + shift + bracketright
+  bspc node -d Games
+alt + ctrl + bracketright
+  bspc desktop --focus Decem
+
+#
+# state / flags
+#
+
+alt + {t,shift + t,s,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# node flags
+alt + ctrl + {m,x,y,z}
+  bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+alt + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+12
+alt + {p,b,comma,period}
+  bspc node -f @{parent,brother,first,second}
+
+alt + {_,shift + }c
+  bspc node -f {next,prev}.local
+
+alt + bracket{left,right}
+  bspc desktop -f {prev,next}.local
+
+alt + {grave,Tab}
+  bspc {node,desktop} -f last
+
+#alt + {_,shift + }{1-9,0}
+#  bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+alt + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+alt + ctrl + {1-9,0}
+  bspc node -o 0.{1.9}
+
+alt + ctrl + space
+  bspc node -p cancel
+
+alt + ctrl + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+alt + super + {h, j, k, l}
+  bspc node -v {-10 0,0 10,0 -10,10 0}
+
+alt + super + {Left, Down, Up, Right}
+  bspc node -v {-10 0,0 10,0 -10,10 0}
+
+alt + {Left, Down, Up, Right}
+  bspc node -z {left -20 0,top 0 20,top 0 -20,left 20 0}
+
+#
+# Media keys
+#
+
+XF86AudioPrev
+  playerctl previous
+
+XF86AudioPlay
+  playerctl play-pause
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioMute
+  pulsemixer --toggle-mute
+
+XF86AudioLowerVolume
+  pulsemixer --change-volume -10
+
+XF86AudioRaiseVolume
+  pulsemixer --change-volume +10
+
+shift + XF86AudioLowerVolume
+  pulsemixer --change-volume -5
+
+shift + XF86AudioRaiseVolume
+  pulsemixer --change-volume +5
+
+XF86MonBrightnessUp
+  sudo light -A 10
+
+XF86MonBrightnessDown
+  sudo light -U 10
+
+shift + XF86MonBrightnessUp
+  sudo light -A 5
+
+shift + XF86MonBrightnessDown
+  sudo light -U 5
+
+XF86KbdBrightnessUp
+  sudo light -s sysfs/leds/smc::kbd_backlight -A 10
+
+XF86KbdBrightnessDown
+  sudo light -s sysfs/leds/smc::kbd_backlight -U 10
+
+shift + XF86KbdBrightnessUp
+  sudo light -s sysfs/leds/smc::kbd_backlight -A 5
+
+shift + XF86KbdBrightnessDown
+  sudo light -s sysfs/leds/smc::kbd_backlight -U 5
+
+#
+# non-wm hotkeys
+#
+
+alt + Return
+  st
+
+alt + d
+  rofi -show drun -font "Noto Sans 12" -theme materia
+
+alt + shift + d
+  rofi -show run -font "Noto Sans 12" -theme materia
+
+alt + super + d
+  rofi -show calc -modi calc -no-show-match -no-sort -font "Noto Sans 12" -theme materia
+
+alt + Escape
+  pkill -USR1 -x sxhkd
+
+ctrl + shift + braceleft
+  flameshot gui
+
+

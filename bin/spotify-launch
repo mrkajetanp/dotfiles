@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+LD_PRELOAD=/usr/lib/libcurl.so.3:/home/kajetan/Git/spotifywm/spotifywm.so /usr/bin/spotify
+

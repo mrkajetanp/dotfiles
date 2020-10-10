@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+doas cryptsetup open UUID=f32e9b17-e4f7-4bec-871c-450851ec60d9 ExtData
+sleep 1
+doas mount -o defaults,exec /dev/extdata/system /mnt/extdata/system
+doas mount /dev/extdata/user /mnt/extdata/user

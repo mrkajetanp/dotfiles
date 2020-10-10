@@ -1,9 +1,44 @@
 dotfiles_dir = ".bombadil"
 
 [settings]
-vars = [ "vars.toml" ]
+vars = [ "themes/gruvbox.toml" ]
 
 hooks = []
 
 [settings.dots]
+
 vimrc = { source = "vim/.vimrc", target = ".vimrc" }
+nvim = { source = "vim/nvim", target = ".config/nvim" }
+
+zshrc = { source = "zsh/.zshrc", target = ".zshrc" }
+vim_colors = { source = "vim/colors", target = ".vim/colors" }
+fonts_conf = { source = "fonts/fonts.conf", target = ".fonts.conf" }
+
+doom_emacs = { source = "doom.d", target = ".doom.d" }
+bin = { source = "bin", target = ".bin" }
+
+picom = { source = "picom/picom.conf", target = ".config/picom.conf" }
+
+rofi_slate  = { source = "rofi/themes/slate-gruvbox.rasi", target = ".local/share/rofi/themes/slate-gruvbox.rasi" }
+
+polybar = { source = "polybar", target = ".config/polybar" }
+
+alacritty = { source = "alacritty", target = ".config/alacritty" }
+
+bspwm = { source = "bspwm", target = ".config/bspwm" }
+sxhkd = { source = "sxhkd", target = ".config/sxhkd" }
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+
+fish_config = { source = "fish/config.fish", target = ".config/fish/config.fish" }
+fish_confd = { source = "fish/conf.d", target = ".config/fish/conf.d" }
+fish_functions = { source = "fish/functions", target = ".config/fish/functions" }
+fish_omf = { source = "fish/omf", target = ".config/omf" }
+
+mimi = { source = "mimi", target = ".config/mimi" }
+transmission-daemon = { source = "transmission-daemon", target = ".config/transmission-daemon" }
+spicetify = { source = "spicetify", target = ".config/spicetify" }
+
+gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+xresources = { source = "x/Xresources", target = ".Xresources" }
+
+# = { source = "", target = "" }

@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+doas umount /dev/extdata/user
+doas umount /dev/extdata/system
+doas vgchange -an extdata
+doas cryptsetup close ExtData

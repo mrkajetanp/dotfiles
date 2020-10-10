@@ -1,0 +1,21 @@
+#!/bin/bash
+
+while true; do
+    VAL=$(echo $(acpi -b) | grep Discharging | cut -f 4 -d " ")
+    if [[ -z "$VAL" ]]; then
+        sleep 1800
+        continue
+    fi
+
+    BATTLEVEL=${VAL::${#VAL}-2}
+
+    if [[ $BATTLEVEL -lt 15 ]]; then
+        /usr/bin/notify-send -a "Low battery warning" "Battery charge at ${BATTLEVEL}%" -u critical
+    fi
+
+    if [[ $BATTLEVEL -lt 10 ]]; then
+        systemctl suspend
+    fi
+
+    sleep 240
+done
