@@ -40,5 +40,6 @@ spicetify = { source = "spicetify", target = ".config/spicetify" }
 
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 xresources = { source = "x/Xresources", target = ".Xresources" }
+offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" }
 
 # = { source = "", target = "" }

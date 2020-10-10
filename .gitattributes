@@ -1,1 +1,1 @@
-.offlineimaprc filter=git-crypt diff=git-crypt
+offlineimap/offlineimaprc filter=git-crypt diff=git-crypt
