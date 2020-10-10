@@ -1,0 +1,9 @@
+dotfiles_dir = ".bombadil"
+
+[settings]
+vars = [ "vars.toml" ]
+
+hooks = []
+
+[settings.dots]
+vimrc = { source = "vim/.vimrc", target = ".vimrc" }
