@@ -1,3 +1,2 @@
-offlineimap/offlineimaprc filter=git-crypt diff=git-crypt
 polybar/gmail/client_secrets.json filter=git-crypt diff=git-crypt
 polybar/gmail/credentials.json filter=git-crypt diff=git-crypt
