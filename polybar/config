@@ -388,7 +388,7 @@ format-underline = #ebcb8b
 
 [module/vpn]
 type = custom/script
-exec = /home/kajetan/.config/polybar/scripts/vpn.py
+exec = /home/kajetan/.config/polybar/scripts/vpn.sh
 interval = 600
 label-font = 3
 format-underline = #b48ead

@@ -8,11 +8,8 @@ hooks = [ "dwmc quit 1" ]
 
 [settings.dots]
 
-vimrc = { source = "vim/.vimrc", target = ".vimrc" }
-nvim = { source = "vim/nvim", target = ".config/nvim" }
-vim_colors = { source = "vim/colors", target = ".vim/colors" }
-
-zshrc = { source = "zsh/.zshrc", target = ".zshrc" }
+nvim = { source = "nvim", target = ".config/nvim" }
+vim_colors = { source = "nvim/colors", target = ".vim/colors" }
 
 fonts_conf = { source = "fonts/fonts.conf", target = ".fonts.conf" }
 fonts = { source = "fonts/Fonts", target = ".Fonts" }
@@ -36,10 +33,11 @@ fish_config = { source = "fish/config.fish", target = ".config/fish/config.fish"
 fish_confd = { source = "fish/conf.d", target = ".config/fish/conf.d" }
 fish_functions = { source = "fish/functions", target = ".config/fish/functions" }
 fish_omf = { source = "fish/omf", target = ".config/omf" }
+zshrc = { source = "zsh/.zshrc", target = ".zshrc" }
 
 mimi = { source = "mimi", target = ".config/mimi" }
-transmission-daemon = { source = "transmission-daemon", target = ".config/transmission-daemon" }
 spicetify = { source = "spicetify", target = ".config/spicetify" }
+transmission-daemon = { source = "transmission-daemon", target = ".config/transmission-daemon" }
 
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 xresources = { source = "x/Xresources", target = ".Xresources" }
@@ -48,4 +46,5 @@ offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" 
 
 dwm = { source = "dwm", target = ".config/dwm" }
 vscode = { source = "vscode/settings.json", target = ".config/Code - OSS/User/settings.json" }
+
 # = { source = "", target = "" }
