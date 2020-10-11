@@ -1,8 +1,8 @@
 ! dwm settings
 
-dwm.normbgcolor: #222222
-dwm.normbordercolor: #222222
-dwm.selbordercolor: #222222
+dwm.normbgcolor: __[background]__
+dwm.normbordercolor: __[background]__
+dwm.selbordercolor: __[background]__
 
 dwm.borderpx: 0
 dwm.gappx: 10

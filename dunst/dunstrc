@@ -287,7 +287,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1e2137fa"
+    background = "__[background_dark]__"
     foreground = "#ffffffff"
     # background = "#2e3340"
     # foreground = "#d8dee8"
@@ -296,7 +296,7 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#1e2137fa"
+    background = "__[background_dark]__"
     foreground = "#ffffffff"
     #background = "#2e3340"
     #foreground = "#d8dee8"
@@ -305,7 +305,7 @@
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#dd130ddd"
+    background = "__[background_urgent]__"
     foreground = "#ffffff"
     #background = "#900000"
     #foreground = "#ffffff"

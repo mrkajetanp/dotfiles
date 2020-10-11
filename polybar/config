@@ -12,7 +12,7 @@
 ; background = #fa1e2137 
 
 [colors]
-background = #1d2021 
+background = __[background_dark]__
 foreground = #e3eaf3
 foreground-alt = #555
 primary = #02c084
