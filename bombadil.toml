@@ -8,12 +8,10 @@ hooks = [ "dwmc quit 1" ]
 
 [settings.dots]
 
-nvim = { source = "nvim", target = ".config/nvim" }
-vim_colors = { source = "nvim/colors", target = ".vim/colors" }
-
 fonts_conf = { source = "fontconfig/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 fonts = { source = "fontconfig/Fonts", target = ".Fonts" }
 
+spacevim = { source = "spacevim", target = ".config/spacevim" }
 doom_emacs = { source = "doom.d", target = ".doom.d" }
 bin = { source = "bin", target = ".bin" }
 

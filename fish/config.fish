@@ -21,7 +21,9 @@ set -gx CPPFLAGS "-I/usr/local/opt/ruby/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
 
 export XDG_CONFIG_HOME=/home/kajetan/.config
+export XDG_DATA_HOME=/home/kajetan/.local/share
 
+export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 alias mkdir="mkdir -p"
