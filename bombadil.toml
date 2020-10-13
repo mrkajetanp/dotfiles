@@ -11,8 +11,8 @@ hooks = [ "dwmc quit 1" ]
 nvim = { source = "nvim", target = ".config/nvim" }
 vim_colors = { source = "nvim/colors", target = ".vim/colors" }
 
-fonts_conf = { source = "fonts/fonts.conf", target = ".fonts.conf" }
-fonts = { source = "fonts/Fonts", target = ".Fonts" }
+fonts_conf = { source = "fontconfig/fonts.conf", target = ".config/fontconfig/fonts.conf" }
+fonts = { source = "fontconfig/Fonts", target = ".Fonts" }
 
 doom_emacs = { source = "doom.d", target = ".doom.d" }
 bin = { source = "bin", target = ".bin" }
@@ -40,8 +40,8 @@ spicetify = { source = "spicetify", target = ".config/spicetify" }
 transmission-daemon = { source = "transmission-daemon", target = ".config/transmission-daemon" }
 
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
-xresources = { source = "x/Xresources", target = ".Xresources" }
-xprofile = { source = "x/xprofile", target = ".xprofile" }
+xresources = { source = "X11/Xresources", target = ".Xresources" }
+xprofile = { source = "X11/xprofile", target = ".xprofile" }
 offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" }
 
 dwm = { source = "dwm", target = ".config/dwm" }

@@ -20,6 +20,10 @@ set -gx LDFLAGS "-L/usr/local/opt/ruby/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/ruby/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
 
+export XDG_CONFIG_HOME=/home/kajetan/.config
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
 alias mkdir="mkdir -p"
 alias exa="exa -al"
 
@@ -32,7 +36,7 @@ alias vim="/usr/local/bin/nvim"
 
 alias fvim="/usr/local/bin/nvim (fzf)"
 alias hvim="/usr/local/bin/nvim (find . | fzf)"
-
+alias wget="wget --hsts-file=/home/kajetan/.cache/wget-hsts"
 alias rundf="/home/kajetan/Games/DwarfFortress/LinuxLNP/startlnp"
 alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
 alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
