@@ -18,6 +18,8 @@
     enable_statusline_mode = false
     bootstrap_before = "config#before"
     bootstrap_after = "config#after"
+    lint_on_the_fly = true
+    enable_ale = true
 
 # Enable autocomplete layer
 [[layers]]
@@ -42,3 +44,28 @@ name = "fzf"
 
 [[layers]]
 name = "cscope"
+
+[[layers]]
+name = "lsp"
+filetypes = [
+  "rust"
+]
+
+[[layers]]
+name = "lang#c"
+clang_executable = "/usr/bin/clang"
+clang_flag = ['']
+[layer.clang_std]
+c = "c11"
+
+[[layers]]
+name = "lang#rust"
+recommended_style = true
+format_on_save = true
+
+[[layers]]
+name = "lang#java"
+
+[[layers]]
+name = "lang#python"
+format_on_save = 1
