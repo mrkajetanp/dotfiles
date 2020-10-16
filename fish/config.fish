@@ -78,3 +78,12 @@ export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PIPE='/tmp/nnn_pipe'
 export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
+export OPENCV_LOG_LEVEL=ERROR
+
+if test -z "$SSH_ENV"
+    set -xg SSH_ENV $HOME/.ssh/environment
+end
+
+if not __ssh_agent_is_started
+    __ssh_agent_start
+end
