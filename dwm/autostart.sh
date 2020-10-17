@@ -1,6 +1,7 @@
 #!/bin/bash
 
-/home/kajetan/.bin/kbd &
+# /home/kajetan/.bin/kbd &
+setxkbmap -layout pl -variant kdvp2
 
 xset r rate 250 60
 

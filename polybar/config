@@ -63,7 +63,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 tray-position = center
-tray-offset-x = 640
+tray-offset-x = 880
 tray-detached = true
 
 padding-left = l1
@@ -200,7 +200,7 @@ ramp-foreground = ${colors.tertiary}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>

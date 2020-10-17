@@ -23,6 +23,27 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
 export XDG_CONFIG_HOME=/home/kajetan/.config
 export XDG_DATA_HOME=/home/kajetan/.local/share
 
+export MPLAYER_HOME=/home/kajetan/.config/mplayer
+export KDE_HOME=/home/kajetan/.config/kde
+export NPM_CONFIG_USERCONFIG=/home/kajetan/.config/npm/npmrc
+export GEM_SPEC_CACHE=/home/kajetan/.cache/gem
+export GOPATH=/home/kajetan/.local/share/go
+export RUSTUP_HOME=/home/kajetan/.local/share/rustup
+export GRADLE_USER_HOME=/home/kajetan/.local/share/gradle
+export CARGO_HOME=/home/kajetan/.local/share/cargo
+export TERMINFO=/home/kajetan/.local/share/terminfo
+export TERMINFO_DIRS=/home/kajetan/.local/share/terminfo:/usr/share/terminfo
+export NODE_REPL_HISTORY=/home/kajetan/.local/share/node_repl_history
+export NVM_DIR=/home/kajetan/.local/share/nvm
+export GEM_HOME=/home/kajetan/.local/share/gem
+export _Z_DATA=/home/kajetan/.local/share/z/data
+export LESSHISTFILE=-
+export XDG_CURRENT_DESKTOP=KDE
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PAGER="bat --paging always --style header,grid"
+
 export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
@@ -31,10 +52,6 @@ alias exa="exa -al"
 
 alias cat="/usr/bin/bat"
 alias ocat="/usr/bin/cat"
-
-alias ls="n -d"
-alias lso="/bin/ls"
-alias vim="/usr/local/bin/nvim"
 
 alias fvim="/usr/local/bin/nvim (fzf)"
 alias hvim="/usr/local/bin/nvim (find . | fzf)"
@@ -58,6 +75,7 @@ alias trm="trash-rm"
 alias cp="cpg -rg"
 alias mv="mvg -g"
 
+alias ls="n -d"
 alias np="n -P p"
 alias N="sudo -E nnn -dH"
 
