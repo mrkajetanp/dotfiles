@@ -53,6 +53,7 @@ alias exa="exa -al"
 alias cat="/usr/bin/bat"
 alias ocat="/usr/bin/cat"
 
+alias svim="sudo vim"
 alias fvim="/usr/local/bin/nvim (fzf)"
 alias hvim="/usr/local/bin/nvim (find . | fzf)"
 alias wget="wget --hsts-file=/home/kajetan/.cache/wget-hsts"
