@@ -1,5 +1,12 @@
 #!/usr/bin/bash
 
-bspc wm -l /home/kajetan/.config/bspwm/layouts/canvas.json
-/home/kajetan/.config/bspwm/layouts/rules.sh
-bspc config border_radius 10
+st -n files -e abduco -A files fish -C nnn &
+st -n secondary -e abduco -A second fish -C neofetch &
+st -n main -e abduco -A main fish &
+
+chromium &
+
+emacs &
+
+tutanota-desktop &
+signal-desktop-beta &

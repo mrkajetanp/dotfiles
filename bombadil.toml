@@ -46,5 +46,3 @@ offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" 
 
 dwm = { source = "dwm", target = ".config/dwm" }
 vscode = { source = "vscode/settings.json", target = ".config/Code - OSS/User/settings.json" }
-
-# = { source = "", target = "" }
