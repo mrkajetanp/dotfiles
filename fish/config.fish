@@ -12,7 +12,7 @@ set -gx PATH "/home/kajetan/.gem/ruby/2.7.0/bin" $PATH;
 set -gx PATH "$HOME/.pub-cache/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
 
-set -gx EDITOR "/usr/local/bin/nvim";
+set -gx EDITOR "/usr/bin/nvim";
 set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 

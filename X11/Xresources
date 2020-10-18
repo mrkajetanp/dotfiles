@@ -8,5 +8,3 @@ dwm.borderpx: 0
 dwm.gappx: 10
 
 dwm.rmaster: 0
-
-Xcursor.theme: capitaine-cursor
