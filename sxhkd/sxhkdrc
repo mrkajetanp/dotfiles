@@ -232,13 +232,13 @@ alt + Return
   st
 
 alt + d
-  rofi -show drun -font "Noto Sans 12" -theme materia
+  rofi -show drun -font "Noto Sans 12" -theme clean
 
 alt + shift + d
-  rofi -show run -font "Noto Sans 12" -theme materia
+  rofi -show run -font "Noto Sans 12" -theme slate-gruvbox
 
 alt + super + d
-  rofi -show calc -modi calc -no-show-match -no-sort -font "Noto Sans 12" -theme materia
+  rofi -show calc -modi calc -no-show-match -no-sort -font "Noto Sans 12" -theme slate-gruvbox
 
 alt + Escape
   pkill -USR1 -x sxhkd

@@ -30,6 +30,7 @@ height = 34
 radius = 16.0
 
 override-redirect = false
+wm-restack = bspwm
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -57,6 +58,7 @@ bottom = true
 height = 34
 radius = 16.0
 
+wm-restack = bspwm
 override-redirect = false
 
 background = ${colors.background}
@@ -66,7 +68,7 @@ tray-position = center
 tray-offset-x = 880
 tray-detached = true
 
-padding-left = l1
+padding-left = 1
 padding-right = 15
 module-margin-left = 2
 module-margin-right = 1
@@ -76,14 +78,14 @@ font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
 font-2 = Hack Nerd Font:pixelsize=18:antialias=true;5
 font-3 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
 
-modules-left = dwm
+modules-left = bspwm
 modules-right = player-status kdeconnect redshift openweathermap-detailed gmail updates-arch
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-bottom-bar]
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:DP-1}
 width = 100%:-24
 offset-x = 12
 offset-y = 12
@@ -113,7 +115,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-top-bar]
-monitor = ${env:MONITOR:HDMI-2}
+monitor = ${env:MONITOR:DP-1}
 width = 100%:-24
 offset-x = 12
 offset-y = 12
@@ -285,76 +287,28 @@ content = 
 content-foreground = ${colors.alert}
 click-left = bash ~/.config/rofi/scripts/launch.sh powermenu
 
-[module/dwm]
-type = internal/dwm
+[module/bspwm]
+type = internal/bspwm
 
-format = <label-tags> <label-layout> <label-floating> <label-title>
-; Path to dwm socket (default: /tmp/dwm.sock)
-; socket-path = /tmp/dwm.sock
-
-enable-tags-click = true
-enable-tags-scroll = true
-tags-scroll-empty = false
-tags-scroll-reverse = false
-tags-scroll-wrap = true
-enable-layout-click = false
-enable-layout-scroll = false
-layout-scroll-wrap = false
-layout-scroll-reverse = false
-
-; Separator in between shown tags
-; label-separator = |
-
-; Title of currently focused window
-; Available tokens:
-;   %title%
-label-title = %title%
-label-title-padding = 1
-label-title-foreground = ${colors.secondary}
-label-title-maxlen = 20
-
-; Symbol of current layout
-; Available tokens:
-;   %symbol%
-label-layout = %symbol%
-label-layout-padding = 1
-label-layout-foreground = ${colors.primary}
-label-layout-background = ${colors.background}
-
-; Text to show when currently focused window is floating
-label-floating = F
-
-; States: focused, unfocused, visible, urgent, empty
-; Available tokens:
-;   %name%
-
-; focused = Selected tag on focused monitor
-label-focused = %{T3}%name%%{T-}
+label-focused = %name%
 label-focused-foreground = ${colors.fourth}
 label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
-; unfocused = Unselected tag on unselected monitor
-label-unfocused = %{T3}%name%%{T-}
-label-unfocused-padding = 2
+label-occupied = %name%
+label-occupied-padding = 1
 
-; visible = Unselected tag, but occupied tag on any monitor
-label-visible = %{T3}%name%%{T-}
-label-visible-background = ${colors.background}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Unselected tag with window that has urgency hint set
-label-urgent = %{T3}%name%%{T-}
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
-; empty = Unselected and unoccupied tag
-; This can be set to an empty string to hide empty tags
-label-empty = %{T3}%name%%{T-}
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.background}
-label-empty-padding = 2
+label-empty-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
 
 [module/updates-arch]
 type = custom/script

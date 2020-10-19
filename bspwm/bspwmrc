@@ -1,7 +1,6 @@
 #! /bin/sh
 
-setxkbmap -layout pl -variant kdvp
-lxappearance &
+setxkbmap -layout pl -variant kdvp2
 
 xset r rate 250 60
 
@@ -44,19 +43,17 @@ bspc rule -a Zathura:org.pwmt.zathura state=tiled
 
 # custom execs
 
-killall lxappearance
-
 killall sxhkd
 sxhkd &
 
-picom --experimental-backends &
+picom --experimental-backends -i 1 --active-opacity 1 --corner-radius 0 &
 lxsession &
 dunst &
 
 killall redshift
 redshift -l 55.86:-4.25 &
 
-/home/kajetan/.config/polybar/launch.sh
+/home/kajetan/.config/polybar/launch-bspwm.sh
 
 st &
 
