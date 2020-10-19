@@ -3,6 +3,7 @@
 [user]
 	name = Kajetan Puchalski
 	email = kajetan.puchalski@tuta.io
+	signingkey = B8617959F0CAA37C59230101324AF44011D9FFE3
 [core]
 	editor = /usr/bin/vim
 [filter "lfs"]
@@ -10,3 +11,5 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[commit]
+	gpgsign = true
