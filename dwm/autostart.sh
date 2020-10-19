@@ -16,6 +16,6 @@ xbanish &
 lxsession &
 greenclip daemon &
 polychromatic-tray-applet &
-/home/kajetan/.bin/battery-notification &
+batsignal -b &
 
 # wmname LG3D

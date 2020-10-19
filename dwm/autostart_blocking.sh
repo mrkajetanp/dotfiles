@@ -3,7 +3,7 @@
 killall dunst
 killall xbanish
 killall lxsession
-killall battery-notification
+killall batsignal
 killall greenclip
 killall picom
 killall polychromatic-t
