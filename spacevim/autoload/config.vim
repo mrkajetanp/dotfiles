@@ -11,4 +11,6 @@ function! config#after() abort
 
   set fillchars+=vert:\ 
   set clipboard+=unnamedplus
+
+  set guicursor+=n:hor20-Cursor/lCursor
 endfunction
