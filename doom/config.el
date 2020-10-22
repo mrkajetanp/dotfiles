@@ -4,7 +4,7 @@
       user-mail-address "kajetan.puchalski@tuta.io")
 
 ;; Appearance
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 14))
+(setq doom-font (font-spec :family "MonacoBSemi" :size 14))
 (setq doom-theme 'doom-gruvbox)
 (setq display-line-numbers-type t)
 
