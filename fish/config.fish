@@ -11,6 +11,7 @@ set -gx PATH "/opt/android-sdk/platform-tools" $PATH;
 set -gx PATH "/home/kajetan/.gem/ruby/2.7.0/bin" $PATH;
 set -gx PATH "$HOME/.pub-cache/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
+set -gx PATH "$GOPATH/bin" $PATH;
 
 set -gx EDITOR "/usr/bin/nvim";
 set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
@@ -80,6 +81,9 @@ alias ls="n -d"
 alias np="n -P p"
 alias N="sudo -E nnn -dH"
 
+alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^GDAXI" "^FCHI" "^N225" "^HSI" "GC=F" "SI=F" "CL=F" "AAPL" "MSFT" "TSLA" "AMZN" "NFLX" "FB" "IBM" "INTC" "AMD" "NVDA" "SPOT" "MA" "V" "SQ" "JPM" "BAC" "GS" "MS" "BYND"'
+alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
+
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
@@ -98,6 +102,7 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PIPE='/tmp/nnn_pipe'
 export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
 export OPENCV_LOG_LEVEL=ERROR
+export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
 
 if test -z "$SSH_ENV"
     set -xg SSH_ENV $HOME/.ssh/environment
