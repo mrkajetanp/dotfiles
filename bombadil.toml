@@ -11,6 +11,7 @@ hooks = [ "dwmc quit 1" ]
 fonts_conf = { source = "fontconfig/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 fonts = { source = "fontconfig/Fonts", target = ".Fonts" }
 
+paru = { source = "paru", target = ".config/paru" }
 spacevim = { source = "spacevim", target = ".config/spacevim" }
 doom_emacs = { source = "doom", target = ".config/doom" }
 bin = { source = "bin", target = ".bin" }
