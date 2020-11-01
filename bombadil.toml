@@ -23,6 +23,7 @@ rofi_slate  = { source = "rofi/themes/slate-gruvbox.rasi", target = ".local/shar
 polybar = { source = "polybar", target = ".config/polybar" }
 
 alacritty = { source = "alacritty", target = ".config/alacritty" }
+neofetch = { source = "neofetch", target = ".config/neofetch" }
 
 bspwm = { source = "bspwm", target = ".config/bspwm" }
 sxhkd = { source = "sxhkd", target = ".config/sxhkd" }

@@ -95,7 +95,7 @@ function f
     cd (cat $XDG_CACHE_HOME/fff/.fff_d)
 end
 
-export TERMINAL=st
+export TERMINAL=alacritty
 export LC_COLLATE="C"
 export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
