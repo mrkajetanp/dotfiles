@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 8
+    y: 8
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -110,7 +110,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: Inconsolata Nerd Font 
-    family: Hack Nerd Font 
+    family: MonacoBSemi
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -146,8 +146,7 @@ font:
     style: Bold Italic
 
   # Point size
-  #size: 9.0
-  size: 8.0
+  size: 6.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -181,12 +180,10 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
 colors:
-  # Default colors
   primary:
-    background: '#2e3340'
-    foreground: '#d8dee8'
+    background: '#282828'
+    foreground: '#fbf1c7'
 
     # Bright and dim foreground colors
     #
@@ -215,25 +212,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#3b4251'
-    red:     '#bf6069'
-    green:   '#a3be8b'
-    yellow:  '#eacb8a'
-    blue:    '#81a1c1'
-    magenta: '#b48dac'
-    cyan:    '#88c0d0'
-    white:   '#e5e9f0'
+    black:   '#282828'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#8ec07c'
+    magenta: '#d3869b'
+    cyan:    '#83a598'
+    white:   '#fbf1c7'
 
   # Bright colors
   bright:
-    black:   '#4c556a'
-    red:     '#bf6069'
-    green:   '#a3be8b'
-    yellow:  '#eacb8a'
-    blue:    '#81a1c1'
-    magenta: '#b48dac'
-    cyan:    '#8fbcbb'
-    white:   '#eceef4'
+    black:   '#928374'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#689d6a'
+    magenta: '#b16286'
+    cyan:    '#458588'
+    white:   '#fbf1c7'
 
   # Dim colors
   #
@@ -290,7 +287,7 @@ colors:
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # background_opacity: 1.0
-background_opacity: 0.95
+background_opacity: 1.0
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
