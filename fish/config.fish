@@ -21,6 +21,8 @@ set -gx LDFLAGS "-L/usr/local/opt/ruby/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/ruby/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
 
+export TERMINAL=alacritty
+
 export XDG_CONFIG_HOME=/home/kajetan/.config
 export XDG_DATA_HOME=/home/kajetan/.local/share
 
@@ -92,7 +94,6 @@ set -x LC_CTYPE en_US.UTF-8
 
 status --is-interactive; and source (rbenv init -|psub)
 
-export TERMINAL=st
 export LC_COLLATE="C"
 export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
