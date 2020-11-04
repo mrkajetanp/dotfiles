@@ -44,12 +44,12 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_HOME=/opt/android-sdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export PAGER="bat --paging always --style header,grid"
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 alias mkdir="mkdir -p"
-alias exa="exa -al"
 
 alias cat="/usr/bin/bat"
 alias ocat="/usr/bin/cat"
@@ -77,23 +77,20 @@ alias trm="trash-rm"
 alias cp="cpg -rg"
 alias mv="mvg -g"
 
-alias ls="n -d"
+alias ls="/usr/bin/exa"
+alias exa="exa -al"
 alias np="n -P p"
 alias N="sudo -E nnn -dH"
 
 alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^GDAXI" "^FCHI" "^N225" "^HSI" "GC=F" "SI=F" "CL=F" "AAPL" "MSFT" "TSLA" "AMZN" "NFLX" "FB" "IBM" "INTC" "AMD" "NVDA" "SPOT" "MA" "V" "SQ" "JPM" "BAC" "GS" "MS" "BYND"'
 alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
 
+alias reboot="loginctl reboot"
+
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
 status --is-interactive; and source (rbenv init -|psub)
-
-function f
-    fff $argv
-    set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME $HOME/.cache
-    cd (cat $XDG_CACHE_HOME/fff/.fff_d)
-end
 
 export TERMINAL=st
 export LC_COLLATE="C"

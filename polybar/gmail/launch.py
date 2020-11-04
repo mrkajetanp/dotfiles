@@ -47,7 +47,7 @@ while True:
     try:
         if Path(CREDENTIALS_PATH).is_file():
             count_was = update_count(count_was)
-            time.sleep(10)
+            time.sleep(120)
         else:
             print(error_prefix + 'credentials not found', flush=True)
             time.sleep(2)

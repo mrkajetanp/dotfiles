@@ -38,12 +38,12 @@ mimi = { source = "mimi", target = ".config/mimi" }
 spicetify = { source = "spicetify", target = ".config/spicetify" }
 transmission-daemon = { source = "transmission-daemon", target = ".config/transmission-daemon" }
 
-gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+gitconfig = { source = "git/gitconfig", target = ".config/git/config" }
 tig = { source = "tig/config", target = ".config/tig/config" }
 
 xresources = { source = "X11/Xresources", target = ".Xresources" }
 xprofile = { source = "X11/xprofile", target = ".xprofile" }
-offlineimap = { source = "offlineimap/offlineimaprc", target = ".offlineimaprc" }
+offlineimap = { source = "offlineimap", target = ".config/offlineimap" }
 
 dwm = { source = "dwm", target = ".config/dwm" }
 vscode = { source = "vscode/settings.json", target = ".config/Code - OSS/User/settings.json" }
