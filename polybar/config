@@ -145,7 +145,6 @@ cursor-scroll = ns-resize
 type = internal/fs
 interval = 250
 mount-0 = /
-mount-1 = /mnt/data
 
 label-mounted = %{F#65a2d9}%mountpoint%%{F-}: %free%
 label-unmounted = %mountpoint% not mounted

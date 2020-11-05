@@ -12,6 +12,7 @@ set -gx PATH "/home/kajetan/.gem/ruby/2.7.0/bin" $PATH;
 set -gx PATH "$HOME/.pub-cache/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
 set -gx PATH "$GOPATH/bin" $PATH;
+set -gx PATH "$CARGO_HOME/bin" $PATH;
 
 set -gx EDITOR "/usr/bin/nvim";
 set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
@@ -62,6 +63,7 @@ alias hvim="/usr/local/bin/nvim (find . | fzf)"
 alias wget="wget --hsts-file=/home/kajetan/.cache/wget-hsts"
 alias rundf="/home/kajetan/Games/DwarfFortress/LinuxLNP/startlnp"
 alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
+alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
 alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
 
 alias pn="printf \"%d\""
@@ -76,6 +78,7 @@ alias trestore="trash-restore"
 alias te="trash-empty"
 alias trm="trash-rm"
 
+alias pcp="ppcp"
 alias cp="cpg -rg"
 alias mv="mvg -g"
 
@@ -88,6 +91,8 @@ alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^
 alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
 
 alias reboot="loginctl reboot"
+
+alias snapper="snapper -c artixroot"
 
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
