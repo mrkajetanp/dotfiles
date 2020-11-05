@@ -91,8 +91,12 @@ alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^
 alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
 
 alias reboot="loginctl reboot"
+alias poweroff="loginctl poweroff"
+alias suspend="loginctl suspend"
+alias hibernate="loginctl hibernate"
 
 alias snapper="snapper -c artixroot"
+alias snapperh="snapper -c home"
 
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8

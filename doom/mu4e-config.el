@@ -20,7 +20,7 @@
 ;;   - w3m -dump -cols 80 -T text/html
 ;;   - view in browser (provided below)
 (setq mu4e-html2text-command "html2text -b 80 --reference-links --protect-links")
-(setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-browser-function 'browse-url-chromium)
 
 ;; spell check
 (add-hook 'mu4e-compose-mode-hook
