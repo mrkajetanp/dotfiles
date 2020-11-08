@@ -98,6 +98,8 @@ alias hibernate="loginctl hibernate"
 alias snapper="snapper -c artixroot"
 alias snapperh="snapper -c home"
 
+alias rc-service="sudo rc-service"
+
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
