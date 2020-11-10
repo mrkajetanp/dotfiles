@@ -1,13 +1,10 @@
 set -gx PATH "$HOME/.bin" $PATH;
 set -gx PATH "$HOME/.emacs.d/bin" $PATH;
-set -gx PATH "$HOME/go/bin" $PATH;
-set -gx PATH "/usr/local/lib/ruby/gems/2.7.0/bin" $PATH;
-set -gx PATH "$HOME/.cargo/bin" $PATH;
-set -gx PATH "$HOME/.cargo/bin" $PATH;
 set -gx PATH "/usr/local/sbin" $PATH;
 set -gx PATH "/opt/metasploit-framework/bin" $PATH;
 set -gx PATH "/opt/android-sdk/emulator" $PATH;
 set -gx PATH "/opt/android-sdk/platform-tools" $PATH;
+set -gx PATH "/usr/local/lib/ruby/gems/2.7.0/bin" $PATH;
 set -gx PATH "/home/kajetan/.gem/ruby/2.7.0/bin" $PATH;
 set -gx PATH "$HOME/.pub-cache/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
