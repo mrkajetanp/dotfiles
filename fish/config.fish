@@ -20,6 +20,8 @@ set -gx CPPFLAGS "-I/usr/local/opt/ruby/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
 
 export TERMINAL=alacritty
+export MONITOR_SECOND=eDP-1
+export MONITOR_THIRD=DP-1
 
 export XDG_CONFIG_HOME=/home/kajetan/.config
 export XDG_DATA_HOME=/home/kajetan/.local/share
@@ -38,6 +40,8 @@ export NODE_REPL_HISTORY=/home/kajetan/.local/share/node_repl_history
 export NVM_DIR=/home/kajetan/.local/share/nvm
 export GEM_HOME=/home/kajetan/.local/share/gem
 export _Z_DATA=/home/kajetan/.local/share/z/data
+export CCACHE_DIR=/home/kajetan/.local/share/ccache
+
 export LESSHISTFILE=-
 export XDG_CURRENT_DESKTOP=KDE
 export _JAVA_AWT_WM_NONREPARENTING=1

@@ -12,19 +12,19 @@
 ; background = #fa1e2137 
 
 [colors]
-background = __[background_dark]__
-foreground = #e3eaf3
+background = #00000000
+foreground = #ffffffff
 foreground-alt = #555
-primary = #02c084
-secondary = #65a2d9
-tertiary = #d07ef2
-fourth = #e5c246
-alert = #ed404c
+primary = #ff02c084
+secondary = #ff65a2d9
+tertiary = #ffd07ef2
+fourth = #ffe5c246
+alert = #ffed404c
 
 [bar/topbar]
-width = 100%:-24
-offset-x = 12
-offset-y = 12
+width = 100%
+offset-x = 0
+offset-y = 4
 
 height = 34
 radius = 16.0
@@ -39,7 +39,7 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
 font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
 
 modules-left = filesystem cpu memory temperature vpn
@@ -49,9 +49,9 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/bottombar]
-width = 100%:-24
-offset-x = 12
-offset-y = 12
+width = 100%:-4
+offset-x = 0
+offset-y = 4
 bottom = true
 
 height = 34
@@ -62,19 +62,19 @@ override-redirect = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-tray-position = center
-tray-offset-x = 880
-tray-detached = true
+tray-position = right
+; tray-offset-x = 880
+tray-detached = false
 
-padding-left = l1
-padding-right = 15
+padding-left = 0
+padding-right = 1
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
-font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
-font-2 = Hack Nerd Font:pixelsize=18:antialias=true;5
-font-3 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=15:antialias=true;3
+font-2 = Hack Nerd Font:pixelsize=16:antialias=true;5
+font-3 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
 
 modules-left = dwm
 modules-right = player-status kdeconnect redshift openweathermap-detailed gmail updates-arch
@@ -83,10 +83,10 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-bottom-bar]
-monitor = ${env:MONITOR:HDMI-2}
-width = 100%:-24
-offset-x = 12
-offset-y = 12
+monitor = ${env:MONITOR_SECOND:HDMI-2}
+width = 100%
+offset-x = 0
+offset-y = 6
 bottom = true
 
 height = 34
@@ -113,10 +113,10 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-top-bar]
-monitor = ${env:MONITOR:HDMI-2}
-width = 100%:-24
-offset-x = 12
-offset-y = 12
+monitor = ${env:MONITOR_SECOND:HDMI-2}
+width = 100%
+offset-x = 0
+offset-y = 6
 
 height = 34
 radius = 16.0
@@ -139,6 +139,66 @@ modules-right = backlight audio wlan battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[bar/third-bottom-bar]
+monitor = ${env:MONITOR_THIRD:DP-1}
+width = 100%
+offset-x = 0
+offset-y = 6
+bottom = true
+
+height = 34
+radius = 16.0
+
+override-redirect = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 1
+
+font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
+font-2 = Hack Nerd Font:pixelsize=18:antialias=true;5
+font-3 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+
+modules-left = dwm
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/third-top-bar]
+monitor = ${env:MONITOR_THIRD:DP-1}
+width = 100%
+offset-x = 0
+offset-y = 6
+
+height = 34
+radius = 16.0
+
+override-redirect = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 1
+
+font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
+
+modules-left = cpu memory temperature
+modules-right = backlight audio wlan battery date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
 
 
 [module/filesystem]
@@ -399,11 +459,11 @@ interval = 10
 
 [settings]
 screenchange-reload = true
+pseudo-transparency = true
 ;compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-;pseudo-transparency =true
 
 [global/wm]
 margin-bottom = 20
