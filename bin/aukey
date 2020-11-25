@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+case "$1" in
+  connect)
+    echo 'Powering bluetooth on'
+    bluetoothctl power on
+    bluetoothctl connect A8:4D:4A:18:B6:AC
+    ;;
+  disconnect)
+    echo 'Powering bluetooth off'
+    bluetoothctl power off
+    bluetoothctl disconnect A8:4D:4A:18:B6:AC
+    ;;
+  *)
+    echo 'Usage...'
+    ;;
+esac
