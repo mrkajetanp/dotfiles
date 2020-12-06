@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+case "$1" in
+  on)
+    echo 'Mapping wasd to arrow keys'
+    xmodmap -e "keycode 25 = Up"
+    xmodmap -e "keycode 38 = Left"
+    xmodmap -e "keycode 39 = Down"
+    xmodmap -e "keycode 40 = Right"
+    ;;
+  off)
+    echo 'Changing back the keyboard layout'
+    setxkbmap -layout pl -variant kdvp2
+    ;;
+  *)
+    echo 'Usage...'
+    ;;
+esac
