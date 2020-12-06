@@ -1,0 +1,34 @@
+#!/usr/bin/bash
+
+case "$1" in
+  default)
+    echo 'Changing the keyboard layout to kdvp'
+
+    setxkbmap -layout pl -variant kdvp2
+    xset r rate 250 60
+
+    ;;
+  gaming)
+    echo 'Changing the keyboard layout to gaming'
+    setxkbmap us
+
+    if [[ -n "$2" ]]; then
+      case "$2" in
+        wasdarrows)
+          echo 'Mapping wasd to arrow keys'
+
+          xmodmap -e "keycode 25 = Up"
+          xmodmap -e "keycode 38 = Left"
+          xmodmap -e "keycode 39 = Down"
+          xmodmap -e "keycode 40 = Right"
+          ;;
+        *)
+          echo 'Unknown option..'
+          ;;
+      esac
+    fi
+    ;;
+  *)
+    echo 'Usage...'
+    ;;
+esac

@@ -25,14 +25,13 @@ export MONITOR_THIRD=DP-1
 
 export XDG_CONFIG_HOME=/home/kajetan/.config
 export XDG_DATA_HOME=/home/kajetan/.local/share
-
+export STARSHIP_CONFIG=~/.config/starship/config.toml
 export MPLAYER_HOME=/home/kajetan/.config/mplayer
 export KDE_HOME=/home/kajetan/.config/kde
 export NPM_CONFIG_USERCONFIG=/home/kajetan/.config/npm/npmrc
 export GEM_SPEC_CACHE=/home/kajetan/.cache/gem
 export GOPATH=/home/kajetan/.local/share/go
 export RUSTUP_HOME=/home/kajetan/.local/share/rustup
-export GRADLE_USER_HOME=/home/kajetan/.local/share/gradle
 export CARGO_HOME=/home/kajetan/.local/share/cargo
 export TERMINFO=/home/kajetan/.local/share/terminfo
 export TERMINFO_DIRS=/home/kajetan/.local/share/terminfo:/usr/share/terminfo
@@ -47,7 +46,6 @@ export XDG_CURRENT_DESKTOP=KDE
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_HOME=/opt/android-sdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
-export PAGER="bat --paging always --style header,grid"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
@@ -121,3 +119,5 @@ end
 if not __ssh_agent_is_started
     __ssh_agent_start
 end
+
+starship init fish | source

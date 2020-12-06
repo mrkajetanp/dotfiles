@@ -34,6 +34,7 @@ fish_confd = { source = "fish/conf.d", target = ".config/fish/conf.d" }
 fish_functions = { source = "fish/functions", target = ".config/fish/functions" }
 fish_omf = { source = "fish/omf", target = ".config/omf" }
 zshrc = { source = "zsh/zshrc", target = ".config/zsh/.zshrc" }
+starship = { source = "starship/config.toml", target = ".config/starship/config.toml" }
 
 mimi = { source = "mimi", target = ".config/mimi" }
 spicetify = { source = "spicetify", target = ".config/spicetify" }

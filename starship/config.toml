@@ -1,0 +1,30 @@
+format = "$all"
+add_newline = false
+scan_timeout = 10
+
+[character]
+success_symbol = "[➜](purple)"
+error_symbol = "[✗](red)"
+vicmd_symbol = "[N](green)"
+
+[username]
+show_always = true
+format = "[$user]($style) at "
+style_user = "bold cyan"
+style_root = "bold red"
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold yellow) in "
+style = "bold green"
+disabled = false
+
+[directory]
+truncation_length = 4 
+truncation_symbol = ".../"
+
+[package]
+format = "[$symbol$version]($style) "
+
+[java]
+style = "red"
