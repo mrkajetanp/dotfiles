@@ -25,7 +25,7 @@ export MONITOR_THIRD=DP-1
 
 export XDG_CONFIG_HOME=/home/kajetan/.config
 export XDG_DATA_HOME=/home/kajetan/.local/share
-export STARSHIP_CONFIG=~/.config/starship/config.toml
+export STARSHIP_CONFIG=/home/kajetan/.config/starship/config.toml
 export MPLAYER_HOME=/home/kajetan/.config/mplayer
 export KDE_HOME=/home/kajetan/.config/kde
 export NPM_CONFIG_USERCONFIG=/home/kajetan/.config/npm/npmrc
