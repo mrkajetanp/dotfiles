@@ -21,7 +21,7 @@ disabled = false
 
 [directory]
 truncation_length = 4 
-truncation_symbol = ".../"
+truncation_symbol = "../"
 
 [package]
 format = "[$symbol$version]($style) "
