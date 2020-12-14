@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+
+case "$1" in
+  install)
+    id="$2"
+
+    if [[ -n "$id" ]]; then
+      cp ~/.local/share/Steam/steamapps/workshop/content/281990/"$id"/descriptor.mod ~/.local/share/Paradox\ Interactive/Stellaris/mod/ugc_"$id".mod
+      echo -e "" >> ~/.local/share/Paradox\ Interactive/Stellaris/mod/ugc_"$id".mod
+      echo "path="\""/home/kajetan/.local/share/Steam/steamapps/workshop/content/281990/"$id\" >> ~/.local/share/Paradox\ Interactive/Stellaris/mod/ugc_"$id".mod
+      echo 'Installed' mod/ugc_"$id".mod
+    fi
+    ;;
+
+  inspect)
+      id="$2"
+      if [[ -n "$id" ]]; then
+        cat ~/.local/share/Steam/steamapps/workshop/content/281990/"$id"/descriptor.mod
+      fi
+    ;;
+
+  edit)
+    id="$2"
+    if [[ -n "$id" ]]; then
+      vim ~/.local/share/Paradox\ Interactive/Stellaris/mod/ugc_"$id".mod
+    fi
+    ;;
+
+  list)
+    ls ~/.local/share/Steam/steamapps/workshop/content/281990
+    ;;
+
+  available)
+    ls ~/.local/share/Paradox\ Interactive/Stellaris/mod
+    ;;
+
+  active)
+    cat ~/.local/share/Paradox\ Interactive/Stellaris/dlc_load.json
+    ;;
+
+  toggle)
+    vim ~/.local/share/Paradox\ Interactive/Stellaris/dlc_load.json
+    ;;
+
+  *)
+    echo "Usage.."
+    ;;
+esac
