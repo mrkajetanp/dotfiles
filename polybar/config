@@ -266,7 +266,7 @@ format-connected = %{A1:bash ~/.config/rofi/applets/applets/network.sh:}<ramp-si
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected = %{A1:bash ~/.config/rofi/applets/applets/network.sh:}%<label-disconnected>%{A}
+format-disconnected = %{A1:bash ~/.config/rofi/applets/applets/network.sh:}<label-disconnected>%{A}
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = 睊
 label-disconnected-foreground = ${colors.alert}
