@@ -64,6 +64,7 @@ alias rundf="/home/kajetan/Games/DwarfFortress/LinuxLNP/startlnp"
 alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
 alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
 alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
+alias nvpn="nordvpn"
 
 alias pn="printf \"%d\""
 alias gitacp="git add . && git commit && git push"
