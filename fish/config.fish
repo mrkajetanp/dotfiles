@@ -70,6 +70,9 @@ alias pn="printf \"%d\""
 alias gitacp="git add . && git commit && git push"
 alias cache-clean="rm -rf /home/kajetan/.cache/*"
 
+alias encr="gpg --encrypt -r kajetan.puchalski@tuta.io --armor"
+alias decr="gpg --decrypt"
+
 alias nf="neofetch"
 
 alias tp="trash-put"
