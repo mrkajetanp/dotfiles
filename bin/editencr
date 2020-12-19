@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+file="$1"
+file_base="${file%.*}"
+
+if [[ -n "$file" ]]; then
+  gpg --decrypt "$file" >> "$file_base"
+  vim "$file_base"
+  rm "$file"
+  gpg --encrypt -r kajetan.puchalski@tuta.io --armor "$file_base"
+  rm "$file_base"
+fi
