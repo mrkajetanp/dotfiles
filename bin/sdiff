@@ -1,0 +1,6 @@
+#!/bin/bash
+
+a="$1"
+b="$2"
+
+diff  <(echo "$a" ) <(echo "$b")
