@@ -39,7 +39,7 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
+font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
 font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
 
 modules-left = filesystem cpu memory temperature vpn
@@ -71,10 +71,10 @@ padding-right = 1
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
-font-1 = Hack Nerd Font:style=Regular:pixelsize=15:antialias=true;3
-font-2 = Hack Nerd Font:pixelsize=16:antialias=true;5
-font-3 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
+font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=16:antialias=true;3
+font-2 = Hack Nerd Font:pixelsize=17:antialias=true;5
+font-3 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
 
 modules-left = dwm
 modules-right = player-status kdeconnect redshift openweathermap-detailed gmail updates-arch
