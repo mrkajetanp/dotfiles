@@ -1,4 +1,5 @@
 set -gx PATH "$HOME/.bin" $PATH;
+set -gx PATH "$HOME/.apps" $PATH;
 set -gx PATH "$HOME/.emacs.d/bin" $PATH;
 set -gx PATH "/usr/local/sbin" $PATH;
 set -gx PATH "/opt/metasploit-framework/bin" $PATH;
@@ -10,8 +11,9 @@ set -gx PATH "$HOME/.pub-cache/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
 set -gx PATH "$GOPATH/bin" $PATH;
 set -gx PATH "$CARGO_HOME/bin" $PATH;
+set -gx PATH "$HOME/.rvm/bin" $PATH;
 
-set -gx EDITOR "/usr/bin/nvim";
+set -gx EDITOR "/bin/kak";
 set -g fish_user_paths "/usr/local/opt/node@10/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 
@@ -37,7 +39,6 @@ export TERMINFO=/home/kajetan/.local/share/terminfo
 export TERMINFO_DIRS=/home/kajetan/.local/share/terminfo:/usr/share/terminfo
 export NODE_REPL_HISTORY=/home/kajetan/.local/share/node_repl_history
 export NVM_DIR=/home/kajetan/.local/share/nvm
-export GEM_HOME=/home/kajetan/.local/share/gem
 export _Z_DATA=/home/kajetan/.local/share/z/data
 export CCACHE_DIR=/home/kajetan/.local/share/ccache
 
@@ -125,3 +126,5 @@ if not __ssh_agent_is_started
 end
 
 starship init fish | source
+
+rvm default
