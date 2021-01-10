@@ -1,97 +1,167 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/kajetan/.oh-my-zsh"
+export PATH=$HOME/.bin:$PATH
+export PATH=$HOME/.apps:$PATH
+export PATH=$HOME/.emacs.d/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/opt/metasploit-framework/bin:$PATH
+export PATH=/opt/android-sdk/emulator:$PATH
+export PATH=/opt/android-sdk/platform-tools:$PATH
+export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
+export PATH=/home/kajetan/.gem/ruby/2.7.0/bin:$PATH
+export PATH=$HOME/.pub-cache/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH=$CARGO_HOME/bin:$PATH
+export PATH=$HOME/.rvm/bin:$PATH
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+export EDITOR=/bin/kak
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
-export LANGUAGE="en_US"
-export LC_ALL="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LANG="C"
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+source $HOME/.config/zsh/antigen.zsh
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+antigen use oh-my-zsh
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+antigen bundle git
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle Tarrasch/zsh-bd
+antigen bundle rtuin/zsh-case
+antigen bundle mollifier/cd-gitroot
+antigen bundle bartboy011/cd-reminder
+antigen bundle anatolykopyl/doas-zsh-plugin
+antigen bundle IngoMeyer441/zsh-easy-motion
+antigen bundle oknowton/zsh-dwim
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle wfxr/forgit
+antigen bundle s7anley/zsh-geeknote
+antigen bundle zpm-zsh/clipboard
+antigen bundle alexdesousa/oath
+antigen bundle jgogstad/passwordless-history
+antigen bundle gko/ssh-connect
+antigen bundle robin-mbg/switch-git
+antigen bundle laggardkernel/zsh-thefuck
+antigen bundle svenXY/timewarrior
+antigen bundle jeffreytse/zsh-vi-mode
+antigen bundle hlissner/zsh-autopair
+antigen bundle agkozak/zsh-z
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+antigen theme romkatv/powerlevel10k
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+antigen apply
 
-source $ZSH/oh-my-zsh.sh
+[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# User configuration
+bindkey -M vicmd ' ' vi-easy-motion
 
-# export MANPATH="/usr/local/man:$MANPATH"
+bindkey -v
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export TERMINAL=alacritty
+export MONITOR_SECOND=eDP-1
+export MONITOR_THIRD=DP-1
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export XDG_CONFIG_HOME=/home/kajetan/.config
+export XDG_DATA_HOME=/home/kajetan/.local/share
+export STARSHIP_CONFIG=/home/kajetan/.config/starship/config.toml
+export MPLAYER_HOME=/home/kajetan/.config/mplayer
+export KDE_HOME=/home/kajetan/.config/kde
+export NPM_CONFIG_USERCONFIG=/home/kajetan/.config/npm/npmrc
+export GEM_SPEC_CACHE=/home/kajetan/.cache/gem
+export GOPATH=/home/kajetan/.local/share/go
+export RUSTUP_HOME=/home/kajetan/.local/share/rustup
+export CARGO_HOME=/home/kajetan/.local/share/cargo
+export TERMINFO=/home/kajetan/.local/share/terminfo
+export TERMINFO_DIRS=/home/kajetan/.local/share/terminfo:/usr/share/terminfo
+export NODE_REPL_HISTORY=/home/kajetan/.local/share/node_repl_history
+export NVM_DIR=/home/kajetan/.local/share/nvm
+export _Z_DATA=/home/kajetan/.local/share/z/data
+export CCACHE_DIR=/home/kajetan/.local/share/ccache
 
-source /usr/share/nvm/init-nvm.sh
+export LESSHISTFILE=-
+export XDG_CURRENT_DESKTOP=KDE
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+
+export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+alias mkdir="mkdir -p"
+
+alias cat="/usr/bin/bat"
+alias ocat="/usr/bin/cat"
+
+alias svim="sudo vim"
+alias fvim="/usr/local/bin/nvim (fzf)"
+alias hvim="/usr/local/bin/nvim (find . | fzf)"
+alias wget="wget --hsts-file=/home/kajetan/.cache/wget-hsts"
+alias rundf="/home/kajetan/Games/DwarfFortress/LinuxLNP/startlnp"
+alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
+alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
+alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
+alias nvpn="nordvpn"
+
+alias pn="printf \"%d\""
+alias gitacp="git add . && git commit && git push"
+alias cache-clean="rm -rf /home/kajetan/.cache/*"
+
+alias encr="gpg --encrypt -r kajetan.puchalski@tuta.io --armor"
+alias decr="gpg --decrypt"
+
+alias nf="neofetch"
+
+alias tp="trash-put"
+alias tl="trash-list"
+alias trestore="trash-restore"
+alias te="trash-empty"
+alias trm="trash-rm"
+
+alias pcp="ppcp"
+alias cp="cpg -rg"
+alias mv="mvg -g"
+
+alias ls="/usr/bin/exa"
+alias exa="exa -al"
+alias np="n -P p"
+alias N="sudo -E nnn -dH"
+
+alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^GDAXI" "^FCHI" "^N225" "^HSI" "GC=F" "SI=F" "CL=F" "AAPL" "MSFT" "TSLA" "AMZN" "NFLX" "FB" "IBM" "INTC" "AMD" "NVDA" "SPOT" "MA" "V" "SQ" "JPM" "BAC" "GS" "MS" "BYND"'
+alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
+
+alias reboot="loginctl reboot"
+alias poweroff="loginctl poweroff"
+alias suspend="loginctl suspend"
+alias hibernate="loginctl hibernate"
+
+alias snapper="snapper -c artixroot"
+alias snapperh="snapper -c home"
+
+alias netcheck="ping 1.1.1.1"
+
+alias rc-service="sudo rc-service"
+alias docker="doas docker"
+
+alias zshconfig="kak $XDG_CONFIG_HOME/zsh/.zshrc"
+
+export LC_COLLATE="C"
+export NNN_TRASH=1
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_PIPE='/tmp/nnn_pipe'
+export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
+export OPENCV_LOG_LEVEL=ERROR
+export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
+
+source /usr/local/src/nnn/misc/quitcd/quitcd.bash_zsh
