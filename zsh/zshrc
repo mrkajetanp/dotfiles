@@ -134,7 +134,7 @@ alias cp="cpg -rg"
 alias mv="mvg -g"
 
 alias ls="/usr/bin/exa"
-alias exa="exa -al"
+alias exa="exa -a"
 alias np="n -P p"
 alias N="sudo -E nnn -dH"
 
