@@ -1,0 +1,49 @@
+#!/usr/bin/python
+
+import sys, subprocess
+from datetime import date
+from pycoingecko import CoinGeckoAPI
+
+# Forex 
+cmd = ["stockprice", "EURGBP=X", "USDGBP=X", "PLNGBP=X", "BTC-GBP"]
+result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+for stock in result.split("\n"):
+    if not stock:
+        continue
+    symbol, price = stock.split()
+    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
+
+
+# Cryptocurrencies
+cmd = ["stockprice", "BTC-GBP"]
+
+cg = CoinGeckoAPI()
+cryptos = cg.get_price(ids='bitcoin,ethereum,nexo', vs_currencies='GBP')
+symbols = { 'bitcoin':'BTC', 'ethereum':'ETH', 'nexo':'NEXO' }
+for crypto in cryptos:
+    print(crypto, symbols[crypto], cryptos[crypto]['gbp'])
+
+# US stocks
+cmd = ["stockprice", "AAPL", "MSFT", "TSLA"]
+result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+for stock in result.split("\n"):
+    if not stock:
+        continue
+    symbol, price = stock.split()
+    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
+
+
+# UK stocks
+cmd = ["stockprice", "AZN.L", "RDSA.L", "SGLN.L"]
+result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+for stock in result.split("\n"):
+    if not stock:
+        continue
+    symbol, price = stock.split()
+    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
+
+
+# P 2021/1/31 AZN £75.04
