@@ -16,13 +16,15 @@ for stock in result.split("\n"):
 
 
 # Cryptocurrencies
-cmd = ["stockprice", "BTC-GBP"]
+print()
 
 cg = CoinGeckoAPI()
 cryptos = cg.get_price(ids='bitcoin,ethereum,nexo', vs_currencies='GBP')
 symbols = { 'bitcoin':'BTC', 'ethereum':'ETH', 'nexo':'NEXO' }
 for crypto in cryptos:
-    print(crypto, symbols[crypto], cryptos[crypto]['gbp'])
+    print("P", date.today().strftime("%Y/%m/%d"), symbols[crypto], "£" + str(cryptos[crypto]['gbp']))
+
+print()
 
 # US stocks
 cmd = ["stockprice", "AAPL", "MSFT", "TSLA"]
@@ -34,6 +36,7 @@ for stock in result.split("\n"):
     symbol, price = stock.split()
     print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
 
+print()
 
 # UK stocks
 cmd = ["stockprice", "AZN.L", "RDSA.L", "SGLN.L"]
