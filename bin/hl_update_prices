@@ -2,17 +2,20 @@
 
 import sys, subprocess
 from datetime import date
+
 from pycoingecko import CoinGeckoAPI
+from yahoo_fin import stock_info as si
 
-# Forex 
-cmd = ["stockprice", "EURGBP=X", "USDGBP=X", "PLNGBP=X", "BTC-GBP"]
-result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
-
-for stock in result.split("\n"):
-    if not stock:
-        continue
-    symbol, price = stock.split()
-    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
+# Forex
+usd_gbp = 0
+currencies = ["EURGBP=X", "USDGBP=X", "PLNGBP=X"]
+symbols = { 'EUR':'€', 'USD':'$', 'PLN':'PLN' }
+for currency in currencies:
+    symbol = currency[:3]
+    price = si.get_live_price(currency)
+    if symbol == "USD":
+        usd_gbp = price
+    print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(price)[:5])
 
 
 # Cryptocurrencies
@@ -27,26 +30,12 @@ for crypto in cryptos:
 print()
 
 # US stocks
-cmd = ["stockprice", "AAPL", "MSFT", "TSLA"]
-result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
+stocks = ["AAPL", "MSFT", "TSLA"]
 
-for stock in result.split("\n"):
-    if not stock:
-        continue
-    symbol, price = stock.split()
-    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
-
-print()
-
-# UK stocks
-cmd = ["stockprice", "AZN.L", "RDSA.L", "SGLN.L"]
-result = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
-
-for stock in result.split("\n"):
-    if not stock:
-        continue
-    symbol, price = stock.split()
-    print("P", date.today().strftime("%Y/%m/%d"), symbol, price)
+for stock in stocks:
+    price = si.get_live_price(stock)
+    print(stock, price)
+#     print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(price)[:5])
 
 
 # P 2021/1/31 AZN £75.04
