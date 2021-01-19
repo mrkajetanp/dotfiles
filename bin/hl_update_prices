@@ -15,7 +15,7 @@ for currency in currencies:
     price = si.get_live_price(currency)
     if symbol == "USD":
         usd_gbp = price
-    print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(price)[:5])
+    print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(round(price, 3)))
 
 
 # Cryptocurrencies
@@ -34,8 +34,7 @@ stocks = ["AAPL", "MSFT", "TSLA"]
 
 for stock in stocks:
     price = si.get_live_price(stock)
-    print(stock, price)
-#     print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(price)[:5])
+    print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price*usd_gbp, 2)))
 
 
 # P 2021/1/31 AZN £75.04
