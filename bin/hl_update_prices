@@ -32,7 +32,7 @@ for stock in stocks:
     print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price*usd_gbp, 2)))
 
 # UK stocks
-stocks = ["RDSA.L", "LLOY.L", "SGLN.L", "AZN.L", "BARC.L"]
+stocks = ["RDSA.L", "LLOY.L", "SGLN.L", "AZN.L", "BARC.L", "IUSA.L"]
 for stock in stocks:
     price = si.get_live_price(stock)
     stock = stock[:-2]
