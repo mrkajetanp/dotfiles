@@ -14,14 +14,14 @@ for currency in currencies:
     price = si.get_live_price(currency)
     if symbol == "USD":
         usd_gbp = price
-    print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(round(price, 3)))
+    print("P", date.today().strftime("%Y/%m/%d"), symbols[symbol], "£" + str(round(price, 3)), ';', 'MARKET PRICE')
 
 # Cryptocurrencies
 cg = CoinGeckoAPI()
 cryptos = cg.get_price(ids='bitcoin,ethereum,nexo', vs_currencies='GBP')
 symbols = { 'bitcoin':'BTC', 'ethereum':'ETH', 'nexo':'NEXO' }
 for crypto in cryptos:
-    print("P", date.today().strftime("%Y/%m/%d"), symbols[crypto], "£" + str(cryptos[crypto]['gbp']))
+    print("P", date.today().strftime("%Y/%m/%d"), symbols[crypto], "£" + str(cryptos[crypto]['gbp']), ';', 'MARKET PRICE')
 
 # US stocks
 stocks = ["AMZN", "MSFT", "BA", "BABA", "BAC", "BRK-B", "BKNG", "DIS", "GOOGL", "JPM", "MA", "NVDA", "SQ", "TLRY", "V", "WMT", "CSPR", "KO", "MCD"]
@@ -29,11 +29,11 @@ for stock in stocks:
     price = si.get_live_price(stock)
     if "-" in stock:
         stock = stock[:-2]
-    print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price*usd_gbp, 2)))
+    print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price*usd_gbp, 2)), ';', 'MARKET PRICE')
 
 # UK stocks
 stocks = ["RDSA.L", "LLOY.L", "SGLN.L", "AZN.L", "BARC.L", "IUSA.L"]
 for stock in stocks:
     price = si.get_live_price(stock)
     stock = stock[:-2]
-    print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price/100, 2)))
+    print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price/100, 2)), ';', 'MARKET PRICE')
