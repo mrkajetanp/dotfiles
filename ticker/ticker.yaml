@@ -1,0 +1,69 @@
+show-separator: true
+interval: 10
+watchlist:
+  - BTC-USD
+  - ETH-USD
+  - ZEC-USD
+  - XMR-USD
+  - EURUSD=X
+  - GBPUSD=X
+  - USDJPY=X
+  - USDCHF=X
+  - USDCAD=X
+  - ^SPX
+  - ^IXIC
+  - ^DJI
+  - ^FTSE
+  - ^GDAXI
+  - ^N225
+  - ^HSI
+  - GC=F
+  - CL=F
+  - SI=F
+  - AMZN
+  - AAPL
+  - TSLA
+  - AMD
+  - BYND
+  - NFLX
+  - INTC
+
+lots:
+  - symbol: "BTC-USD"
+    quantity: 0.02167912
+
+  - symbol: "AMZN"
+    quantity: 0.012
+    unit_cost: 2242.69
+
+  - symbol: "V"
+    quantity: 0.1
+    unit_cost: 173.86
+
+  - symbol: "TLRY"
+    quantity: 1.0
+    unit_cost: 4.11
+
+  - symbol: "MSFT"
+    quantity: 0.07
+    unit_cost: 182.82
+
+  - symbol: "BA"
+    quantity: 0.07
+    unit_cost: 145.29
+
+  - symbol: "SQ"
+    quantity: 0.05
+    unit_cost: 47.58
+
+  - symbol: "NVDA"
+    quantity: 0.01
+    unit_cost: 518.00
+
+  - symbol: "SPCE"
+    quantity: 1
+    unit_cost: 15.43
+
+  - symbol: "ZNGA"
+    quantity: 4
+    unit_cost: 8.015

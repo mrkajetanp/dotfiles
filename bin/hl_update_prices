@@ -18,8 +18,8 @@ for currency in currencies:
 
 # Cryptocurrencies
 cg = CoinGeckoAPI()
-cryptos = cg.get_price(ids='bitcoin,ethereum,nexo', vs_currencies='GBP')
-symbols = { 'bitcoin':'BTC', 'ethereum':'ETH', 'nexo':'NEXO' }
+cryptos = cg.get_price(ids='bitcoin,ethereum,nexo,ripple,binancecoin,monero', vs_currencies='GBP')
+symbols = { 'bitcoin':'BTC', 'ethereum':'ETH', 'nexo':'NEXO', 'ripple':'XRP', 'binancecoin':'BNB', 'monero':'XMR' }
 for crypto in cryptos:
     print("P", date.today().strftime("%Y/%m/%d"), symbols[crypto], "£" + str(cryptos[crypto]['gbp']), ';', 'MARKET PRICE')
 

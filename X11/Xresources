@@ -1,10 +1,17 @@
 ! dwm settings
 
-dwm.normbgcolor: __[background]__
-dwm.normbordercolor: __[background]__
-dwm.selbordercolor: __[background]__
+dwm.normbgcolor: #222222
+dwm.normbordercolor: #222222
+dwm.selbordercolor: #222222
 
 dwm.borderpx: 0
 dwm.gappx: 10
 
 dwm.rmaster: 0
+
+! xmenu settings
+
+xmenu.foreground: #fbf1c7
+xmenu.background: #282828
+xmenu.border: #282828
+xmenu.selbackground: #424242
