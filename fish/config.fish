@@ -105,6 +105,21 @@ alias snapperh="snapper -c home"
 alias netcheck="ping 1.1.1.1"
 
 alias rc-service="sudo rc-service"
+alias docker="doas docker"
+
+alias t="timew"
+alias ts="timew summary"
+alias tsi="timew summary :ids"
+
+alias hl="hledger"
+alias hlui="hledger-ui -t -E"
+
+alias ticker="ticker --config ~/.config/ticker/ticker.yaml"
+alias editaccounts="kak ~/Documents/Finance/hledger/2021.journal"
+
+alias updaccprices="sed -i '/MARKET PRICE/d' ~/Documents/Finance/hledger/2021.journal && hl_update_prices >> ~/Documents/Finance/hledger/2021.journal"
+
+alias fishconfig="kak ~/.config/fish/config.fish"
 
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
@@ -126,7 +141,5 @@ end
 if not __ssh_agent_is_started
     __ssh_agent_start
 end
-
-starship init fish | source
 
 rvm default
