@@ -7,7 +7,7 @@ Applications
 Alacritty	alacritty
 st		st
 
-Terminate user		loginctl terminate-user kajetan
+Restart sddm	rc-service sddm restart
 Shutdown		loginctl poweroff
 Reboot			loginctl reboot
 EOF
