@@ -39,11 +39,12 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
-font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
+font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=15:antialias=true;3
 
 modules-left = filesystem cpu memory temperature vpn
-modules-right = backlight audio wlan battery date powermenu
+modules-center = date
+modules-right = backlight audio wlan battery powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -71,19 +72,19 @@ padding-right = 1
 module-margin-left = 2
 module-margin-right = 1
 
-font-0 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
-font-1 = Hack Nerd Font:style=Regular:pixelsize=16:antialias=true;3
-font-2 = Hack Nerd Font:pixelsize=17:antialias=true;5
-font-3 = Hack Nerd Font:pixelsize=11:antialias=true;2.5
+font-0 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
+font-1 = Hack Nerd Font:style=Regular:pixelsize=14:antialias=true;3
+font-2 = Hack Nerd Font:pixelsize=15:antialias=true;5
+font-3 = Hack Nerd Font:pixelsize=9:antialias=true;2.5
 
 modules-left = dwm
-modules-right = player-status kdeconnect redshift openweathermap-detailed gmail updates-arch
+modules-right = player-status kdeconnect openweathermap-detailed gmail updates-arch
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-bottom-bar]
-monitor = ${env:MONITOR_SECOND:HDMI-2}
+monitor = ${env:MONITOR_SECOND:eDP-1}
 width = 100%
 offset-x = 0
 offset-y = 6
@@ -113,7 +114,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/second-top-bar]
-monitor = ${env:MONITOR_SECOND:HDMI-2}
+monitor = ${env:MONITOR_SECOND:eDP-1}
 width = 100%
 offset-x = 0
 offset-y = 6
