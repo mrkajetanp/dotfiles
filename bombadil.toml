@@ -12,7 +12,6 @@ fonts_conf = { source = "fontconfig/fonts.conf", target = ".config/fontconfig/fo
 fonts = { source = "fontconfig/Fonts", target = ".Fonts" }
 
 paru = { source = "paru", target = ".config/paru" }
-spacevim = { source = "spacevim", target = ".config/spacevim" }
 kakoune = { source = "kakoune/kakrc", target = ".config/kak/kakrc" }
 doom_emacs = { source = "doom", target = ".config/doom" }
 bin = { source = "bin", target = ".bin" }
