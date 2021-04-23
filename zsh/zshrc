@@ -1,104 +1,140 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=$HOME/.bin:$PATH
-export PATH=$HOME/.apps:$PATH
-export PATH=$HOME/.emacs.d/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=/opt/metasploit-framework/bin:$PATH
-export PATH=/opt/android-sdk/emulator:$PATH
-export PATH=/opt/android-sdk/platform-tools:$PATH
-export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
-export PATH=/home/kajetan/.gem/ruby/2.7.0/bin:$PATH
-export PATH=$HOME/.pub-cache/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-export PATH=$CARGO_HOME/bin:$PATH
-export PATH=$HOME/.rvm/bin:$PATH
+#### Env variables ####
 
-export EDITOR=/bin/kak
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-
-# ENABLE_CORRECTION="true"
-
-source $HOME/.config/zsh/antigen.zsh
-
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle ssh-agent
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle Tarrasch/zsh-bd
-antigen bundle rtuin/zsh-case
-antigen bundle mollifier/cd-gitroot
-antigen bundle bartboy011/cd-reminder
-antigen bundle anatolykopyl/doas-zsh-plugin
-antigen bundle IngoMeyer441/zsh-easy-motion
-antigen bundle oknowton/zsh-dwim
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle wfxr/forgit
-antigen bundle s7anley/zsh-geeknote
-antigen bundle zpm-zsh/clipboard
-antigen bundle alexdesousa/oath
-antigen bundle jgogstad/passwordless-history
-antigen bundle gko/ssh-connect
-antigen bundle robin-mbg/switch-git
-antigen bundle laggardkernel/zsh-thefuck
-antigen bundle svenXY/timewarrior
-antigen bundle jeffreytse/zsh-vi-mode
-antigen bundle hlissner/zsh-autopair
-antigen bundle agkozak/zsh-z
-
-antigen theme romkatv/powerlevel10k
-
-antigen apply
-
-[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
-
-bindkey -M vicmd ' ' vi-easy-motion
-
-bindkey -v
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export EDITOR=nvim
 
 export TERMINAL=alacritty
 export MONITOR_SECOND=eDP-1
 export MONITOR_THIRD=DP-1
 
-export XDG_CONFIG_HOME=/home/kajetan/.config
-export XDG_DATA_HOME=/home/kajetan/.local/share
-export STARSHIP_CONFIG=/home/kajetan/.config/starship/config.toml
-export MPLAYER_HOME=/home/kajetan/.config/mplayer
-export KDE_HOME=/home/kajetan/.config/kde
-export NPM_CONFIG_USERCONFIG=/home/kajetan/.config/npm/npmrc
-export GEM_SPEC_CACHE=/home/kajetan/.cache/gem
-export GOPATH=/home/kajetan/.local/share/go
-export RUSTUP_HOME=/home/kajetan/.local/share/rustup
-export CARGO_HOME=/home/kajetan/.local/share/cargo
-export TERMINFO=/home/kajetan/.local/share/terminfo
-export TERMINFO_DIRS=/home/kajetan/.local/share/terminfo:/usr/share/terminfo
-export NODE_REPL_HISTORY=/home/kajetan/.local/share/node_repl_history
-export NVM_DIR=/home/kajetan/.local/share/nvm
-export _Z_DATA=/home/kajetan/.local/share/z/data
-export CCACHE_DIR=/home/kajetan/.local/share/ccache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export MPLAYER_HOME=$HOME/.config/mplayer
+export KDE_HOME=$HOME/.config/kde
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+export GEM_SPEC_CACHE=$HOME/.cache/gem
+export GOPATH=$HOME/.local/share/go
+export TERMINFO=$HOME/.local/share/terminfo
+export TERMINFO_DIRS=$HOME/.local/share/terminfo:/usr/share/terminfo
+export NODE_REPL_HISTORY=$HOME/.local/share/node_repl_history
+export NVM_DIR=$HOME/.local/share/nvm
+export _Z_DATA=$HOME/.local/share/z/data
+export CCACHE_DIR=$HOME/.local/share/ccache
+export VIRTUALFISH_HOME=$HOME/.local/share/virtualenvs
+export JAVA_HOME=/usr/lib/jvm/default
 
 export LESSHISTFILE=-
 export XDG_CURRENT_DESKTOP=KDE
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_HOME=/opt/android-sdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+export LEDGER_FILE=$HOME/Documents/Finance/hledger/2021.journal
+
+#### PATH setup ####
+
+export PATH=~/.bin:$PATH
+export PATH=~/.apps:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=~/.emacs.d/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+
+#### Antigen setup ####
+
+source $HOME/.config/zsh/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+
+antigen bundle chrissicool/zsh-256color
+antigen bundle djui/alias-tips
+antigen bundle desyncr/auto-ls
+antigen bundle MichaelAquilina/zsh-auto-notify
+antigen bundle hlissner/zsh-autopair
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle Tarrasch/zsh-bd
+antigen bundle rtuin/zsh-case
+antigen bundle IngoMeyer441/zsh-easy-motion
+antigen bundle gko/ssh-connect
+antigen bundle hcgraf/zsh-sudo
+antigen bundle mfaerevaag/wd
+antigen bundle Bhupesh-V/ugit
+antigen bundle skywind3000/z.lua
+antigen bundle supercrabtree/k
+antigen bundle larkery/zsh-histdb
+antigen bundle bobsoppe/zsh-ssh-agent
+antigen bundle zsh-users/zsh-completions
+antigen bundle MenkeTechnologies/zsh-cargo-completion
+
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
+
+#### General shell setup ####
+
+# Use histdb for autosuggestions
+_zsh_autosuggest_strategy_histdb_top_here() {
+    local query="select commands.argv from
+history left join commands on history.command_id = commands.rowid
+left join places on history.place_id = places.rowid
+where places.dir LIKE '$(sql_escape $PWD)%'
+and commands.argv LIKE '$(sql_escape $1)%'
+group by commands.argv order by count(*) desc limit 1"
+    suggestion=$(_histdb_query "$query")
+}
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+
+#### Local plugin setup ####
+
+source ~/.config/zsh/nnn.zsh
+
+export LC_COLLATE="C"
+export NNN_TRASH=1
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_PIPE='/tmp/nnn_pipe'
+export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
+export OPENCV_LOG_LEVEL=ERROR
+export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
+
+#### Plugin setup ####
+
+AUTO_LS_NEWLINE=false
+AUTO_LS_COMMANDS=(ls)
+
+#### Vi-mode ####
+
+set -o vi
+
+#### Key bindings ####
+
+bindkey -M vicmd ' ' vi-easy-motion
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+#### Zsh settings ####
+
+# Case-insensitive completions
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+
+#### Aliases ####
 
 alias mkdir="mkdir -p"
 
@@ -108,16 +144,17 @@ alias ocat="/usr/bin/cat"
 alias svim="sudo vim"
 alias fvim="/usr/local/bin/nvim (fzf)"
 alias hvim="/usr/local/bin/nvim (find . | fzf)"
-alias wget="wget --hsts-file=/home/kajetan/.cache/wget-hsts"
-alias rundf="/home/kajetan/Games/DwarfFortress/LinuxLNP/startlnp"
+alias wget="wget --hsts-file=$HOME/.cache/wget-hsts"
+alias rundf="/$HOME/Games/DwarfFortress/LinuxLNP/startlnp"
 alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
 alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
 alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
-alias nvpn="nordvpn"
+alias nv="nordvpn"
+alias nvs="nordvpn status"
 
 alias pn="printf \"%d\""
 alias gitacp="git add . && git commit && git push"
-alias cache-clean="rm -rf /home/kajetan/.cache/*"
+alias cache-clean="rm -rf /$HOME/.cache/*"
 
 alias encr="gpg --encrypt -r kajetan.puchalski@tuta.io --armor"
 alias decr="gpg --decrypt"
@@ -135,7 +172,8 @@ alias cp="cpg -rg"
 alias mv="mvg -g"
 
 alias ls="/usr/bin/exa"
-alias exa="exa -a"
+alias exa="exa -al"
+alias l="exa -al"
 alias np="n -P p"
 alias N="sudo -E nnn -dH"
 
@@ -155,14 +193,130 @@ alias netcheck="ping 1.1.1.1"
 alias rc-service="sudo rc-service"
 alias docker="doas docker"
 
-alias zshconfig="kak $XDG_CONFIG_HOME/zsh/.zshrc"
+alias t="timew"
+alias tw="timew week"
+alias ts="timew summary"
+alias tsi="timew summary :ids"
 
-export LC_COLLATE="C"
-export NNN_TRASH=1
-export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PIPE='/tmp/nnn_pipe'
-export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
-export OPENCV_LOG_LEVEL=ERROR
-export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
+alias hl="hledger"
+alias hlui="hledger-ui -t -E"
 
-source /usr/local/src/nnn/misc/quitcd/quitcd.bash_zsh
+alias manhl="LEDGER_FILE=$HOME/Documents/Finance/hledger/management.journal hl"
+alias manhlui="LEDGER_FILE=$HOME/Documents/Finance/hledger/management.journal hlui"
+
+alias ticker="ticker --config ~/.config/ticker/ticker.yaml"
+
+alias editaccounts="kak ~/Documents/Finance/hledger/2021.journal"
+alias maneditaccounts="kak ~/Documents/Finance/hledger/management.journal"
+
+# alias updaccprices="sed -i '/MARKET PRICE/d' ~/Documents/Finance/hledger/2021.journal && hl_update_prices >> ~/Documents/Finance/hledger/2021.journal"
+alias updaccprices="hl_update_prices >> ~/Documents/Finance/hledger/2021.journal"
+alias manupdaccprices="hl_update_prices >> ~/Documents/Finance/hledger/management.journal"
+
+alias vimconfig="vim ~/.config/spacevimrc"
+alias fishconfig="vim ~/.config/fish/config.fish"
+alias zshconfig="vim $HOME/.config/zsh/.zshrc"
+
+alias cmakeinitbuild="cmake -E chdir build cmake -GNinja .."
+alias cmakebuild="cmake --build build"
+
+alias inn="sudo inn"
+alias innernet="sudo innernet"
+
+
+alias cat="/usr/bin/bat"
+alias ocat="/usr/bin/cat"
+
+alias svim="sudo vim"
+alias fvim="/usr/local/bin/nvim (fzf)"
+alias hvim="/usr/local/bin/nvim (find . | fzf)"
+alias wget="wget --hsts-file=$HOME/.cache/wget-hsts"
+alias rundf="/$HOME/Games/DwarfFortress/LinuxLNP/startlnp"
+alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
+alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
+alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
+alias nv="nordvpn"
+alias nvs="nordvpn status"
+
+alias pn="printf \"%d\""
+alias gitacp="git add . && git commit && git push"
+alias cache-clean="rm -rf /$HOME/.cache/*"
+
+alias encr="gpg --encrypt -r kajetan.puchalski@tuta.io --armor"
+alias decr="gpg --decrypt"
+
+alias nf="neofetch"
+
+alias tp="trash-put"
+alias tl="trash-list"
+alias trestore="trash-restore"
+alias te="trash-empty"
+alias trm="trash-rm"
+
+alias pcp="ppcp"
+alias cp="cpg -rg"
+alias mv="mvg -g"
+
+alias ls="/usr/bin/exa"
+alias exa="exa -al"
+alias l="exa -al"
+alias np="n -P p"
+alias N="sudo -E nnn -dH"
+
+alias tickers-stock='watch -n 120 -tc ticker.sh "^SPX" "^IXIC" "^DJI" "^FTSE" "^GDAXI" "^FCHI" "^N225" "^HSI" "GC=F" "SI=F" "CL=F" "AAPL" "MSFT" "TSLA" "AMZN" "NFLX" "FB" "IBM" "INTC" "AMD" "NVDA" "SPOT" "MA" "V" "SQ" "JPM" "BAC" "GS" "MS" "BYND"'
+alias tickers-currencies='watch -n 120 -t -c ticker.sh EURUSD=X GBPUSD=X JPY=X CHF=X CAD=X CNY=X INR=X USDHKD=X USDSGD=X USDMXN=X GBPEUR=X GBPJPY=X GBPCAD=X GBPAUD=X GBPCHF=X GBPNOK=X EURCHF=X EURCAD=X EURJPY=X EURSEK=X EURHUF=X BTC-USD ETH-USD XRP-USD LTC-USD BCH-USD XMR-USD ZEC-USD'
+
+alias reboot="loginctl reboot"
+alias poweroff="loginctl poweroff"
+alias suspend="loginctl suspend"
+alias hibernate="loginctl hibernate"
+
+alias snapper="snapper -c artixroot"
+alias snapperh="snapper -c home"
+
+alias netcheck="ping 1.1.1.1"
+
+alias rc-service="sudo rc-service"
+alias docker="doas docker"
+
+alias t="timew"
+alias tw="timew week"
+alias ts="timew summary"
+alias tsi="timew summary :ids"
+
+alias hl="hledger"
+alias hlui="hledger-ui -t -E"
+
+alias manhl="LEDGER_FILE=$HOME/Documents/Finance/hledger/management.journal hl"
+alias manhlui="LEDGER_FILE=$HOME/Documents/Finance/hledger/management.journal hlui"
+
+alias ticker="ticker --config ~/.config/ticker/ticker.yaml"
+
+alias editaccounts="kak ~/Documents/Finance/hledger/2021.journal"
+alias maneditaccounts="kak ~/Documents/Finance/hledger/management.journal"
+
+# alias updaccprices="sed -i '/MARKET PRICE/d' ~/Documents/Finance/hledger/2021.journal && hl_update_prices >> ~/Documents/Finance/hledger/2021.journal"
+alias updaccprices="hl_update_prices >> ~/Documents/Finance/hledger/2021.journal"
+alias manupdaccprices="hl_update_prices >> ~/Documents/Finance/hledger/management.journal"
+
+alias vimconfig="vim ~/.config/spacevimrc"
+alias fishconfig="vim ~/.config/fish/config.fish"
+
+alias cmakeinitbuild="cmake -E chdir build cmake -GNinja .."
+alias cmakebuild="cmake --build build"
+
+alias inn="sudo inn"
+alias innernet="sudo innernet"
+
+#### Misc ####
+
+# Setup RVM for Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to path for scripting (to manage Ruby versions)
+export PATH="$GEM_HOME/bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+
+# Start the completion daemon
+source <(cod init $$ zsh)
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
