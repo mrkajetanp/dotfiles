@@ -5,5 +5,5 @@ killall xbanish
 killall lxsession
 killall batsignal
 killall greenclip
+killall redshift
 killall picom
-killall polychromatic-t
