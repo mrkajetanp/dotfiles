@@ -80,6 +80,18 @@ antigen bundle larkery/zsh-histdb
 antigen bundle bobsoppe/zsh-ssh-agent
 antigen bundle zsh-users/zsh-completions
 antigen bundle MenkeTechnologies/zsh-cargo-completion
+antigen bundle wfxr/forgit
+antigen bundle Tarrasch/zsh-functional
+antigen bundle mafredri/zsh-async
+antigen bundle seletskiy/zsh-fuzzy-search-and-edit
+antigen bundle rcruzper/zsh-git-plugin
+antigen bundle alexdesousa/hab
+antigen bundle willghatch/zsh-hooks
+antigen bundle alexdesousa/oath
+antigen bundle jgogstad/passwordless-history
+antigen bundle willghatch/zsh-snippets
+antigen bundle MisterRios/stashy
+antigen bundle JaumeRF/linkfile-zsh
 
 antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
@@ -89,6 +101,8 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 
 #### General shell setup ####
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Use histdb for autosuggestions
 _zsh_autosuggest_strategy_histdb_top_here() {
@@ -119,6 +133,9 @@ export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
 AUTO_LS_NEWLINE=false
 AUTO_LS_COMMANDS=(ls)
 
+export OATH_EMAIL=kajetan.puchalski@tuta.io
+export OATH_KEY=B8617959F0CAA37C59230101324AF44011D9FFE3
+
 #### Vi-mode ####
 
 set -o vi
@@ -128,13 +145,18 @@ set -o vi
 bindkey -M vicmd ' ' vi-easy-motion
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^P' fuzzy-search-and-edit
+bindkey '^[x' snippet-expand
 
 #### Zsh settings ####
 
 # Case-insensitive completions
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+setopt MENU_COMPLETE
 
 #### Aliases ####
+
+alias _="doas"
 
 alias mkdir="mkdir -p"
 
@@ -307,6 +329,9 @@ alias cmakebuild="cmake --build build"
 
 alias inn="sudo inn"
 alias innernet="sudo innernet"
+
+alias push="git push"
+alias state="git status"
 
 #### Misc ####
 

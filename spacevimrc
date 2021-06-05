@@ -1,0 +1,124 @@
+" Comment the following line if you don't want Vim and NeoVim to share the
+" same plugin download directory.
+let g:spacevim_plug_home = '~/.vim/plugged'
+
+" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
+" let g:spacevim_leader = "<\Space>"
+
+" Uncomment the following line to override the local leader key. The default value is comma ','.
+" let g:spacevim_localleader = ','
+
+" Enable the existing layers in space-vim.
+" Refer to https://github.com/mrkajetanp/space-vim/blob/master/layers/LAYERS.md for all available layers.
+let g:spacevim_layers = [
+      \ 'fzf', 'better-defaults', 'which-key', 'programming', 'lsp', 'syntax-checking', 'java', 'python', 'auto-completion', 'file-manager',
+      \ 'c-c++', 'cscope', 'ctags',
+      \ 'git', 'github', 'better-motion', 'editing', 'ctrlp',
+      \ ]
+
+" Uncomment the following line if your terminal(-emulator) supports true colors.
+let g:spacevim_enable_true_color = 1
+
+" Uncomment the following if you have some nerd font installed.
+" let g:spacevim_nerd_fonts = 1
+
+" If you want to have more control over the layer, try using Layer command.
+" if g:spacevim.gui
+"   Layer 'airline'
+" endif
+
+" Manage your own plugins.
+" Refer to https://github.com/junegunn/vim-plug for more detials.
+function! UserInit()
+
+  Plug 'junegunn/seoul256.vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'tmsvg/pear-tree'
+  Plug 'preservim/nerdcommenter'
+  Plug 'yuttie/comfortable-motion.vim'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'tpope/vim-eunuch'
+  Plug 'thaerkh/vim-workspace'
+
+endfunction
+
+" Override the default settings from space-vim & add extras
+function! UserConfig()
+  let g:ale_disable_lsp = 1
+  highlight ALEError ctermbg=none cterm=underline
+
+  let g:pear_tree_pairs = {
+        \ '(': {'closer': ')'},
+        \ '[': {'closer': ']'},
+        \ '{': {'closer': '}'},
+        \ "'": {'closer': "'"},
+        \ '"': {'closer': '"'},
+        \ '/\*': {'closer': ' \*/'}
+        \ }
+
+  let g:LanguageClient_serverCommands = {
+    \ 'c': ['/bin/ccls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['~/.local/bin/pyls'],
+    \ }
+
+  let g:LanguageClient_settingsPath = ".vim"
+
+  let g:NERDTreeIgnore=[
+        \ '\.d$[[dir]]', '\.o$[[file]]', '\.out$[[file]]', 'tmp/cache$[[path]]',
+        \ '\.cache$[[dir]]', '\.ccls-cache$[[dir]]', '\.git$[[dir]]', '\.vim$[[dir]]',
+        \ '\.ko$[[file]]', '\.cmd$[[file]]', '\Module.symvers$[[file]]', '\modules.order$[[file]]',
+        \ '\.gitignore$[[file]]',
+        \ ]
+
+  set wildignore+=*.o,*.out,*.mod*
+  let g:NERDTreeRespectWildIgnore=1
+
+  let g:SignatureMap = {
+          \ 'Leader'             :  "m",
+          \ 'PlaceNextMark'      :  "m,",
+          \ 'ToggleMarkAtLine'   :  "m.",
+          \ 'PurgeMarksAtLine'   :  "m-",
+          \ 'DeleteMark'         :  "dm",
+          \ 'PurgeMarks'         :  "m<Space>",
+          \ 'PurgeMarkers'       :  "m<BS>",
+          \ 'GotoNextLineAlpha'  :  "']",
+          \ 'GotoPrevLineAlpha'  :  "'[",
+          \ 'GotoNextSpotAlpha'  :  "!]",
+          \ 'GotoPrevSpotAlpha'  :  "![",
+          \ 'GotoNextLineByPos'  :  "]'",
+          \ 'GotoPrevLineByPos'  :  "['",
+          \ 'GotoNextSpotByPos'  :  "]!",
+          \ 'GotoPrevSpotByPos'  :  "[!",
+          \ 'GotoNextMarker'     :  "]-",
+          \ 'GotoPrevMarker'     :  "[-",
+          \ 'GotoNextMarkerAny'  :  "]=",
+          \ 'GotoPrevMarkerAny'  :  "[=",
+          \ 'ListBufferMarks'    :  "m/",
+          \ 'ListBufferMarkers'  :  "m?"
+          \ }
+
+  colorscheme gruvbox
+  hi CurrentWord cterm=underline
+  set guicursor+=n:hor20-Cursor/lCursor
+
+  nnoremap 0 #
+  nnoremap # $
+  nnoremap $ 0
+
+  map <silent> <leader>pp :CtrlP<CR>
+  map <silent> <leader>T :tabnew<CR>
+  map <silent> <leader>gv :GV<CR>
+  map <silent> <leader>gs :Git<CR>
+  map <silent> <leader>fW :SudoWrite<CR>
+
+  map <silent> <leader>nc :NERDTreeCWD<CR>
+  map <silent> <leader>nv :NERDTreeVCS<CR>
+
+  set formatoptions+=r
+  set comments=sl:/*,mb:*,elx:*/
+
+  " set norelativenumber
+
+endfunction
