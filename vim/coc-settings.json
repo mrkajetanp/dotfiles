@@ -1,0 +1,15 @@
+{
+  "diagnostic.displayByAle": true,
+  "codeLens.enable": false,
+  "java.home": "/usr/lib/jvm/java-15-openjdk",
+  "python": {
+    "analysis": {
+      "typeCheckingMode": "basic"
+    },
+    "linting": {
+      "pycodestyleEnabled": true
+    },
+    "pythonPath": "/home/kajpuc01/tools/lisa/.lisa-venv-3.8/bin/python"
+  }
+}
+
