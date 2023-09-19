@@ -23,6 +23,7 @@ call plug#begin(expand('~/./plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/vim-better-default'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -37,7 +38,6 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb'
-Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/eleline.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -75,8 +75,6 @@ Plug 'xolox/vim-session'
 "" Include user's extra bundle
 if filereadable(expand("~/.rc.local.bundles"))
   source ~/.rc.local.bundles
-endif
-
 call plug#end()
 
 " Required:
@@ -89,29 +87,10 @@ filetype plugin indent on
 
 runtime! plugin/default.vim
 
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-set ttyfast
-
-"" Fix backspace indent
-set backspace=indent,eol,start
-
 "" Map leader to ,
 let g:mapleader="\<Space>"
 
-"" Enable hidden buffers
-set hidden
-
-"" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-set fileformats=unix,dos,mac
-setlocal autoindent cindent expandtab tabstop=4 shiftwidth=4 softtabstop=4
+setlocal cindent expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 set shell=/usr/local/bin/zsh
 
@@ -124,19 +103,10 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
-syntax on
-set ruler
-set number
 
 let no_buffers_menu=1
 colorscheme gruvbox
 set termguicolors
-
-" Better command line completion
-set wildmenu
-
-" mouse support
-set mouse=a
 
 set mousemodel=popup
 set t_Co=256
@@ -150,11 +120,6 @@ set guicursor+=n:hor20-Cursor/lCursor
 if &term =~ '256color'
   set t_ut=
 endif
-
-set scrolloff=5
-
-"" Status bar
-set laststatus=2
 
 "" Use modeline overrides
 set modeline
@@ -367,13 +332,13 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
+
 " coc.nvim
 "
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
-nnoremap <C-j> <C-e>
-nnoremap <C-k> <C-y>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')

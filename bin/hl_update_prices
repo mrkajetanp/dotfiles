@@ -26,7 +26,7 @@ for crypto in cryptos:
     print("P", date.today().strftime("%Y/%m/%d"), symbols[crypto], "£" + str(cryptos[crypto]['gbp']), ';', 'MARKET PRICE')
 
 # US stocks
-stocks = ["AMZN", "MSFT", "AAPL", "BA", "BABA", "BAC", "DIS", "GOOGL", "MA", "NVDA", "SQ", "TLRY", "V", "MCD", "CDE", "SBBP", "SPCE", "ZNGA"]
+stocks = ["AMZN", "MSFT", "AAPL", "BA", "BABA", "BAC", "DIS", "GOOGL", "MA", "NVDA", "SQ", "TLRY", "V", "MCD", "CDE", "SPCE", "XERS", "COIN"]
 for stock in stocks:
     price = si.get_live_price(stock)
     if "-" in stock:
@@ -34,7 +34,7 @@ for stock in stocks:
     print("P", date.today().strftime("%Y/%m/%d"), stock, "£" + str(round(price*usd_gbp, 2)), ';', 'MARKET PRICE')
 
 # UK stocks
-stocks = ["RDSA.L", "SGLN.L", "AZN.L", "IUSA.L"]
+stocks = ["SGLN.L", "AZN.L", "IUSA.L", "SHEL.L"]
 for stock in stocks:
     price = si.get_live_price(stock)
     stock = stock[:-2]

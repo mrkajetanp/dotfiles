@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+case "$1" in
+  connect)
+    echo 'Powering bluetooth on'
+    bluetoothctl power on
+    echo 'Connecting to MX Vertical'
+    bluetoothctl connect F4:7D:EF:8B:1A:3E
+    echo 'Connecting to Keychron K2'
+		bluetoothctl connect DC:2C:26:E9:62:2B
+    ;;
+  disconnect)
+    echo 'Disconnecting from Keychron K2'
+		bluetoothctl disconnect DC:2C:26:E9:62:2B
+    echo 'Disconnecting from MX Vertical'
+    bluetoothctl disconnect F4:7D:EF:8B:1A:3E
+    ;;
+  *)
+    echo 'Usage...'
+    ;;
+esac

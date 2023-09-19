@@ -1,0 +1,171 @@
+[{
+  "include": "~/.config/waybar/custom_modules/modules",
+  "layer": "top",
+  "height": 31,
+  "margin-top": 10,
+  "margin-left": 0,
+  "margin-bottom": 0,
+  "margin-right": 0,
+  "spacing": 0,
+
+  "modules-left": [
+    "custom/dnf-update"
+  ],
+
+  "modules-center": [
+    "clock",
+  ],
+
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "bluetooth",
+    "network",
+    "custom/power-menu"
+  ],
+
+  "clock": {
+	"interval": 1,
+    "format": "<b>{:%a %d %b, %r}</b>",
+  },
+
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "{icon} <b>{percent}</b>",
+    "tooltip": false,
+    "format-icons": ["", "", ""]
+  },
+
+  "pulseaudio": {
+    "format": "<b>墳 {volume}</b>",
+    "format-bluetooth": "<b>󰗾 {volume}</b>",
+    "format-bluetooth-muted": "<b>󰗿</b>",
+    "tooltip": false,
+    "format-muted": " 婢 ",
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "interval": 30,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<b>{icon} {capacity}%</b>",
+    "format-charging": "<b>{icon}⚡{capacity}%</b>",
+    "format-icons": [" ", " ", " ", " "],
+    "max-length": 25,
+    "tooltip": false
+  },
+
+  "bluetooth": {
+    "format": "<b>󰂳</b>",
+    "format-connected": "<b>󰂯 {device_alias}</b>",
+    "format-disabled": "<b>󰂲</b>",
+    "interval": 30,
+    "on-click" : "bash ~/.config/waybar/scripts/rofi-bluetooth",
+    "tooltip": false,
+  },
+
+  "network": {
+    "format-wifi": "<b>󰤨 {essid}</b>",
+    "format-ethernet": "󰈀",
+    "tooltip": false,
+    "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+    "format-disconnected": "<b>󰈂</b>"
+  },
+}, 
+
+{
+  "include": "~/.config/waybar/custom_modules/modules",
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-bottom": 10,
+  "margin-right": 0,
+  "spacing": 0,
+
+  "modules-left": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk"
+  ],
+
+  "modules-center": [
+    "wlr/workspaces"
+  ],
+
+  "modules-right": [
+	"custom/weather",
+    "tray",
+  ],
+
+  "cpu": {
+    "interval": 10,
+    "format": " <b>{usage}%</b>",
+    "max-length": 10,
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "﬙ <b>{used}GiB</b>",
+    "format-alt": " <b>{used:0.1f}G</b>",
+    "max-length": 10
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": " {free}",
+    "path": "/"
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C</b>",
+    "format": " <b>{temperatureC}°C</b>"
+  },
+
+  "wlr/workspaces": {
+	"sort-by-number": true,
+    "disable-scroll": true,
+    "all-outputs": false,
+    "on-click": "activate",
+    "format": "<b>{icon}</b>",
+    "format-icons": {
+	  "1": "",
+	  "2": "",
+	  "3": "",
+	  "4": "",
+	  "5": "ﱅ",
+	  "6": "",
+	  "7": "",
+	  "8": "",
+	  "9": "",
+	  "10": "",
+      "11": "",
+	  "12": "",
+	  "13": "",
+	  "14": "",
+	  "15": "ﱅ",
+	  "16": "",
+	  "17": "",
+	  "18": "",
+	  "19": "",
+	  "20": "",
+      "urgent": "󰗖",
+      "default": ""
+    }
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 4
+  },
+}]

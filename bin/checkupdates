@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+declare -r myname='checkupdates'
+declare -r myver='1.0.0'
+
+dnf check-update | grep updates
+
+exit 0

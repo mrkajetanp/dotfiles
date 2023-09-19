@@ -1,0 +1,6 @@
+#!/bin/bash
+
+make bzImage -j6
+make modules -j6
+sudo make modules_install
+sudo make install

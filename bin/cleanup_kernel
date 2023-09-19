@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo rm -rf /boot/*$1*
+sudo grubby --remove-kernel=/boot/vmlinuz-$1
