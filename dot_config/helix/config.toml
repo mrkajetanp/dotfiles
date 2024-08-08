@@ -1,0 +1,51 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+text-width = 100
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode", "spinner", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+normal = "block"
+
+[editor.file-picker]
+hidden = true
+
+[keys.normal]
+"#" = "goto_line_end"
+"$" = "goto_line_start"
+"G" = "goto_last_line"
+
+[keys.select]
+"#" = "goto_line_end"
+"$" = "goto_line_start"
+"G" = "goto_last_line"
+
+[keys.normal.space]
+"q" = ":quit"
+"Q" = ":quit-all!"
+
+[keys.normal.space.i]
+"r" = ":config-reload"
+
+[keys.normal.space.f]
+"f" = "file_picker"
+"s" = ":write"
+
+[keys.normal.space.b]
+"b" = "buffer_picker"
+"n" = "goto_next_buffer"
+"p" = "goto_previous_buffer"
+"r" = ":reload"
+"d" = ":buffer-close"
+

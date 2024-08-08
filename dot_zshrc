@@ -1,0 +1,282 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#### Env variables ####
+
+export EDITOR=nvim
+
+export DIRSTACKSIZE=8
+
+export TERMINAL=alacritty
+export MONITOR_SECOND=eDP-1
+# export MONITOR_THIRD=DP-1
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export MPLAYER_HOME=$HOME/.config/mplayer
+export KDE_HOME=$HOME/.config/kde
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+export GEM_SPEC_CACHE=$HOME/.cache/gem
+export GOPATH=$HOME/.local/share/go
+export TERMINFO=$HOME/.local/share/terminfo
+export TERMINFO_DIRS=$HOME/.local/share/terminfo:/usr/share/terminfo
+export NODE_REPL_HISTORY=$HOME/.local/share/node_repl_history
+export NVM_DIR=$HOME/.local/share/nvm
+export _Z_DATA=$HOME/.local/share/z/data
+export CCACHE_DIR=$HOME/.local/share/ccache
+export VIRTUALFISH_HOME=$HOME/.local/share/virtualenvs
+export JAVA_HOME=/usr/lib/jvm/default-java
+
+export LESSHISTFILE=-
+export XDG_CURRENT_DESKTOP=KDE
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export HISTFILE="$XDG_DATA_HOME"/bash/history
+
+export SPACEVIMDIR=$XDG_CONFIG_HOME/spacevim/
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+#### PATH setup ####
+
+export PATH=~/.bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=~/.apps:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=~/.emacs.d/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+export PATH=~/.local/share/cargo/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+if [[ -n $PERLBREW_PATH ]]; then
+	export PATH=$PERLBREW_PATH:$PATH
+fi
+export PATH=/opt/android-sdk/cmdline-tools/latest/bin:$PATH
+
+#### Antigen setup ####
+
+source $HOME/.config/zsh/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+
+antigen bundle chrissicool/zsh-256color
+antigen bundle djui/alias-tips
+antigen bundle desyncr/auto-ls
+antigen bundle MichaelAquilina/zsh-auto-notify
+antigen bundle hlissner/zsh-autopair
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle Tarrasch/zsh-bd
+antigen bundle rtuin/zsh-case
+antigen bundle IngoMeyer441/zsh-easy-motion
+antigen bundle gko/ssh-connect
+antigen bundle hcgraf/zsh-sudo
+antigen bundle mfaerevaag/wd
+antigen bundle Bhupesh-V/ugit
+antigen bundle skywind3000/z.lua
+antigen bundle supercrabtree/k
+antigen bundle larkery/zsh-histdb
+antigen bundle bobsoppe/zsh-ssh-agent
+antigen bundle zsh-users/zsh-completions
+antigen bundle MenkeTechnologies/zsh-cargo-completion
+antigen bundle wfxr/forgit
+antigen bundle qoomon/zsh-lazyload
+antigen bundle hlohm/mfunc
+antigen bundle Tarrasch/zsh-functional
+antigen bundle mafredri/zsh-async@main
+antigen bundle seletskiy/zsh-fuzzy-search-and-edit
+antigen bundle rcruzper/zsh-git-plugin
+# antigen bundle alexdesousa/hab
+antigen bundle willghatch/zsh-hooks
+# antigen bundle alexdesousa/oath
+antigen bundle jgogstad/passwordless-history
+antigen bundle willghatch/zsh-snippets
+antigen bundle MisterRios/stashy
+# antigen bundle JaumeRF/linkfile-zsh
+
+antigen bundle zdharma/fast-syntax-highlighting@main
+antigen bundle zsh-users/zsh-history-substring-search
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
+
+#### General shell setup ####
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# Use histdb for autosuggestions
+_zsh_autosuggest_strategy_histdb_top_here() {
+    local query="select commands.argv from
+history left join commands on history.command_id = commands.rowid
+left join places on history.place_id = places.rowid
+where places.dir LIKE '$(sql_escape $PWD)%'
+and commands.argv LIKE '$(sql_escape $1)%'
+group by commands.argv order by count(*) desc limit 1"
+    suggestion=$(_histdb_query "$query")
+}
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+
+#### Local plugin setup ####
+
+source ~/.config/zsh/nnn.zsh
+
+export LC_COLLATE="C"
+export NNN_TRASH=1
+export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_PIPE='/tmp/nnn_pipe'
+export NNN_PLUG='b:bookmarks;p:preview-tui;v:imgview;n:nmount;i:pskill;d:dragdrop;e:suedit;h:hexview;c:chksum;t:treeview;l:launch;m:mediainf;k:kdeconnect;o:fzopen;s:pass;f:fzcd;z:fzz;w:bitwarden'
+export OPENCV_LOG_LEVEL=ERROR
+export BOOKMARKS_DIR=$XDG_DATA_HOME/nnn/bookmarks
+
+#### Plugin setup ####
+
+AUTO_LS_NEWLINE=false
+AUTO_LS_COMMANDS=(ls)
+
+#### Vi-mode ####
+
+set -o vi
+
+#### Key bindings ####
+
+bindkey -M vicmd ' ' vi-easy-motion
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^P' fuzzy-search-and-edit
+bindkey '^[x' snippet-expand
+
+#### Zsh settings ####
+
+# Case-insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+#### Aliases ####
+
+alias mkdir="mkdir -p"
+
+alias cat="bat -p"
+alias ocat="/bin/cat"
+
+alias _="xdoxx"
+alias vim="nvim"
+alias svim="sudo nvim"
+alias fvim="/usr/bin/nvim (fzf)"
+alias hvim="/usr/bin/nvim (find . | fzf)"
+alias wget="wget --hsts-file=$HOME/.cache/wget-hsts"
+
+alias lsblk="lsblk -o NAME,FSTYPE,SIZE,FSUSED,LABEL,MOUNTPOINT"
+alias lsblk="lsblk && echo '' && findmnt -nt btrfs"
+alias lsblku="lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINT"
+
+alias pn="printf \"%d\""
+alias q="quilt"
+alias qp="quilt-patchset"
+alias qdsn="quilt diff --snapshot"
+alias gitacp="git add . && git commit && git push"
+alias gch="git checkout"
+alias gcp="git cherry-pick"
+alias logs="git log --oneline"
+alias cache-clean="rm -rf /$HOME/.cache/*"
+
+alias encr="gpg --encrypt -r kajetan.puchalski@arm.com --armor"
+alias decr="gpg --decrypt"
+
+alias nf="neofetch"
+alias wp="workload-processor"
+
+alias td="termdown"
+alias tp="trash-put"
+alias tl="trash-list"
+alias trestore="trash-restore"
+alias te="trash-empty"
+alias trm="trash-rm"
+
+alias tar="/usr/local/bin/tar"
+alias tarzstc="tar -c --use-compress-program=zstdmt -vaf"
+alias tarzstx="tar -x --use-compress-program=zstdmt -vaf"
+
+alias np="n -P p"
+alias N="sudo -E nnn -dH"
+
+alias reboot="systemctl reboot"
+alias poweroff="systemctl poweroff"
+alias suspend="systemctl suspend"
+alias hibernate="systemctl hibernate"
+
+alias netcheck="ping 1.1.1.1"
+
+alias t="timew"
+alias tw="timew week"
+alias ts="timew summary"
+alias tsi="timew summary :ids"
+
+alias hl="hledger"
+alias hlui="hledger-ui -t -E"
+
+alias ticker="ticker --config ~/.config/ticker/ticker.yaml"
+
+alias vimconfig="vim ~/.config/nvim/init.lua"
+alias fishconfig="vim ~/.config/fish/config.fish"
+alias zshconfig="vim $HOME/.zshrc"
+
+alias cmakeinitbuild="cmake -E chdir build cmake -GNinja .."
+alias cmakebuild="cmake --build build"
+
+alias nv="nordvpn"
+alias nvs="nordvpn status"
+
+alias push="git push"
+alias state="git status"
+
+alias dh="dirs -v"
+alias pd="popd"
+alias psd="pushd"
+
+alias sshoss1="ssh kajpuc01@oss-kernel-x86-01.oss.cambridge.arm.com"
+
+alias ls="eza"
+alias l="eza -al"
+alias ols="/bin/ls"
+
+#### Other functions ####
+
+source $HOME/.config/zsh/tools.zsh
+
+#### Misc ####
+
+# Setup RVM for Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to path for scripting (to manage Ruby versions)
+export PATH="$GEM_HOME/bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+
+# Setup NVM for Node
+export NVM_DIR="$HOME/.local/share/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Start the completion daemon
+#source <(cod init $$ zsh)
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/kajpuc01/.bun/_bun" ] && source "/Users/kajpuc01/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
