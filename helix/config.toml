@@ -1,0 +1,30 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+normal = "block"
+
+[editor.file-picker]
+hidden = true
+
+[keys.normal]
+"#" = "goto_line_end"
+"$" = "goto_line_start"
+
+[keys.normal.space]
+"q" = ":quit"
+"Q" = ":quit-all!"
+
+[keys.normal.space.f]
+"f" = "file_picker"
+"s" = ":write"
+
+[keys.normal.space.b]
+"b" = "buffer_picker"
+"n" = "goto_next_buffer"
+"p" = "goto_previous_buffer"
+
