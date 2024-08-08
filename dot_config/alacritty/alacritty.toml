@@ -335,7 +335,7 @@ mods = "Shift"
 history = 5000
 
 [window]
-decorations = "none"
+decorations = "full"
 title = "Alacritty"
 option_as_alt = "both"
 
