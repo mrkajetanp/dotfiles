@@ -25,7 +25,7 @@ abbr grv git remote -v
 
 abbr nf neofetch
 abbr ff fastfetch
-abbr vim nvim
+abbr vim hx
 
 abbr fishconfig chezmoi edit ~/.config/fish/config.fish && chezmoi apply
 abbr vimconfig chezmoi edit ~/.config/nvim/init.lua && chezmoi apply
