@@ -336,6 +336,7 @@ history = 5000
 
 [window]
 decorations = "full"
+decorations_theme_variant = "Dark"
 title = "Alacritty"
 option_as_alt = "both"
 
