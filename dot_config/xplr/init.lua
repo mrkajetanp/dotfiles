@@ -1,12 +1,6 @@
 version = "0.21.9"
 
 local home = os.getenv("HOME")
-package.path = home
-.. "/.config/xplr/plugins/?/init.lua;"
-.. home
-.. "/.config/xplr/plugins/?.lua;"
-.. package.path
-
 local xpm_path = home .. "/.local/share/xplr/dtomvan/xpm.xplr"
 local xpm_url = "https://github.com/dtomvan/xpm.xplr"
 
@@ -29,8 +23,9 @@ os.execute(
 require("xpm").setup({
   plugins = {
     'dtomvan/xpm.xplr',
+    'sayanarijit/tri-pane.xplr',
+    'sayanarijit/command-mode.xplr',
     'Junker/nuke.xplr',
-    'sayanarijit/command-mode.xplr'
   }
 })
 
