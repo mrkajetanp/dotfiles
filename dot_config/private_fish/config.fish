@@ -1,4 +1,5 @@
 if status is-interactive
+    set -gx GPG_TTY (tty)
 end
 
 abbr l eza -al
@@ -33,12 +34,17 @@ abbr cm chezmoi
 abbr hl hledger
 abbr hlui hledger-ui -t -E
 
+abbr leiup podman run -v /Users:/Users --env HOME=$HOME -t -i public-inbox lei up --all
+abbr leishell podman run -v /Users:/Users --env HOME=$HOME -t -i public-inbox /bin/bash
+
+abbr nm neomutt
+
+set -Ux EDITOR hx
+set -g EDITOR hx
+
 source ~/.config/fish/local.fish
 
 function tere
     set --local result (command tere $argv)
     [ -n "$result" ] && cd -- "$result"
 end
-
-set -Ux EDITOR hx
-set -g EDITOR hx

@@ -84,6 +84,10 @@ vimp.nnoremap('#', '$')
 vimp.nnoremap('0', '#')
 vimp.nnoremap('$', '0')
 
+vimp.nnoremap('gl', '$')
+vimp.nnoremap('gh', '0')
+vimp.nnoremap('mm', '%')
+
 vimp.nnoremap('<C-j>', '<C-e>')
 vimp.nnoremap('<C-k>', '<C-y>')
 
