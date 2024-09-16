@@ -1,5 +1,4 @@
 if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 abbr l eza -al
@@ -31,5 +30,15 @@ abbr fishconfig chezmoi edit ~/.config/fish/config.fish && chezmoi apply
 abbr vimconfig chezmoi edit ~/.config/nvim/init.lua && chezmoi apply
 
 abbr cm chezmoi
+abbr hl hledger
+abbr hlui hledger-ui -t -E
 
 source ~/.config/fish/local.fish
+
+function tere
+    set --local result (command tere $argv)
+    [ -n "$result" ] && cd -- "$result"
+end
+
+set -Ux EDITOR hx
+set -g EDITOR hx

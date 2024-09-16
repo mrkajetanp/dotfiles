@@ -53,6 +53,11 @@ hidden = true
 [keys.normal.space.i]
 "r" = ":config-reload"
 
+[keys.normal.space.j]
+"j" = "jumplist_picker"
+"b" = "jump_backward"
+"f" = "jump_forward"
+
 [keys.normal.space.f]
 "f" = "file_picker"
 "s" = ":write"
