@@ -25,7 +25,26 @@
 
 (setq shell-file-name (executable-find "bash"))
 
+;; Chezmoi helpers
+
+(defvar doom-chezmoi-config-dir (expand-file-name "~/.local/share/chezmoi/dot_config/doom/"))
+
+(defun open-doom-chezmoi-config ()
+  "Browse chezmoi doom config"
+  (interactive)
+  (doom-project-browse doom-chezmoi-config-dir))
+
+(defun chezmoi-apply ()
+  "Apply chezmoi config changes"
+  (interactive)
+  (shell-command "chezmoi apply"))
+
 ;; Custom Bindings
+
+(map! :map custom-bindings
+      :leader "f p" 'open-doom-chezmoi-config
+      :leader "f a" 'chezmoi-apply
+      :leader "s c" 'evil-ex-nohighlight)
 
 (map! :map evil-visual-state-map
       "$" 'evil-beginning-of-line
@@ -38,9 +57,6 @@
       "#" 'evil-end-of-line
       "gh" 'evil-beginning-of-line
       "gl" 'evil-end-of-line)
-
-(map! :map custom-bindings
-      :leader "s c" 'evil-ex-nohighlight)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
