@@ -25,6 +25,15 @@
 
 (setq shell-file-name (executable-find "bash"))
 
+;; Chezmoi
+
+(defvar doom-chezmoi-config-dir (expand-file-name "~/.local/share/chezmoi/dot_config/doom/"))
+
+(defun open-doom-chezmoi-config ()
+  "Browse chezmoi doom config"
+  (interactive)
+  (doom-project-browse doom-chezmoi-config-dir))
+
 ;; Custom Bindings
 
 (map! :map evil-visual-state-map
@@ -40,6 +49,7 @@
       "gl" 'evil-end-of-line)
 
 (map! :map custom-bindings
+      :leader "f p" 'open-doom-chezmoi-config
       :leader "s c" 'evil-ex-nohighlight)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
