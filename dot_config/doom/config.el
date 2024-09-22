@@ -16,14 +16,16 @@
 ;; accept. For example:
 
 ;; Appearance
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12 :weight 'semi-bold))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'semi-bold))
 (setq doom-theme 'doom-gruvbox)
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; Org mode
 (setq org-directory "~/org/")
 
+;; Play nice with fish
 (setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
 
 ;; Chezmoi helpers
 
@@ -65,6 +67,23 @@
       "#" 'evil-end-of-line
       "gh" 'evil-beginning-of-line
       "gl" 'evil-end-of-line)
+
+;; Package configs
+
+(use-package! hledger-mode
+  :load-path "packages/rest/hledger-mode/"
+  :mode ("\\.journal\\'" "\\.hledger\\'")
+  :commands hledger-enable-reporting
+  :defer t
+
+  :init
+  (setq hledger-jfile (expand-file-name "~/Documents/Finance/hledger/2024.journal"))
+
+  :config
+  (add-hook 'hledger-mode-hook
+            (lambda ()
+              (make-local-variable 'company-backends)
+              (add-to-list 'company-backends 'hledger-company))))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
