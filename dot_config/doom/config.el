@@ -39,12 +39,20 @@
   (interactive)
   (shell-command "chezmoi apply"))
 
+;; Custom hooks
+
+(add-hook 'rust-mode-hook 'subword-mode)
+(add-hook 'elisp-mode-hook 'subword-mode)
+(add-hook 'c-mode-hook 'subword-mode)
+(add-hook 'python-mode-hook 'subword-mode)
+
 ;; Custom Bindings
 
 (map! :map custom-bindings
       :leader "f p" 'open-doom-chezmoi-config
       :leader "f a" 'chezmoi-apply
-      :leader "s c" 'evil-ex-nohighlight)
+      :leader "s c" 'evil-ex-nohighlight
+      :leader "t S" 'subword-mode)
 
 (map! :map evil-visual-state-map
       "$" 'evil-beginning-of-line
