@@ -39,6 +39,9 @@ abbr leishell podman run -v /Users:/Users --env HOME=$HOME -t -i public-inbox /b
 
 abbr nm neomutt
 
+abbr em emacs -nw
+abbr ec emacsclient -nw
+
 set -Ux EDITOR hx
 set -g EDITOR hx
 
