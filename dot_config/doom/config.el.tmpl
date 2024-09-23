@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq user-full-name "Kajetan Puchalski"
-      user-mail-address "kajetan.puchalski@tuta.io")
+      user-mail-address "{{ .email }}")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -16,7 +16,7 @@
 ;; accept. For example:
 
 ;; Appearance
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'semi-bold))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size {{ .alacritty_font_size }} :weight 'semi-bold))
 (setq doom-theme 'doom-gruvbox)
 (setq display-line-numbers-type 'relative)
 
