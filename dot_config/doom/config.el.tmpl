@@ -27,6 +27,8 @@
 (setq shell-file-name (executable-find "bash"))
 (setq-default vterm-shell (executable-find "fish"))
 
+(setq gc-cons-threshold 100000000)
+
 ;; Chezmoi helpers
 
 (defvar doom-chezmoi-config-dir (expand-file-name "~/.local/share/chezmoi/dot_config/doom/"))
