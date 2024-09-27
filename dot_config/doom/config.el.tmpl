@@ -19,9 +19,14 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size {{ .alacritty_font_size }} :weight 'semi-bold))
 (setq doom-theme 'doom-gruvbox)
 (setq display-line-numbers-type 'relative)
+(setq fill-column 100)
 
 ;; Org mode
 (setq org-directory "~/org/")
+
+(load-library "find-lisp")
+(setq org-agenda-files
+      (find-lisp-find-files "~/org" "\.org$"))
 
 ;; Play nice with fish
 (setq shell-file-name (executable-find "bash"))
@@ -65,10 +70,13 @@
       "gl" 'evil-end-of-line)
 
 (map! :map evil-normal-state-map
+      "C-j" 'evil-scroll-line-down
+      "C-k" 'evil-scroll-line-up
       "$" 'evil-beginning-of-line
       "#" 'evil-end-of-line
       "gh" 'evil-beginning-of-line
-      "gl" 'evil-end-of-line)
+      "gl" 'evil-end-of-line
+      "U" 'evil-redo)
 
 ;; Package configs
 
