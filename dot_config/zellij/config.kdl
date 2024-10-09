@@ -5,7 +5,7 @@ keybinds clear-defaults=true {
         bind "Ctrl f" { SwitchToMode "Scroll"; }
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Ctrl l" { SwitchToMode "Normal"; }
     }
     resize {
         bind "Ctrl r" { SwitchToMode "Normal"; }
@@ -112,6 +112,8 @@ keybinds clear-defaults=true {
     session {
         bind "Ctrl s" { SwitchToMode "Normal"; }
         bind "Ctrl f" { SwitchToMode "Scroll"; }
+        bind "l" { SwitchToMode "Locked"; }
+        bind "q" { Quit; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
@@ -145,8 +147,6 @@ keybinds clear-defaults=true {
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }

@@ -42,8 +42,10 @@ abbr nm neomutt
 abbr em emacs -nw
 abbr ec emacsclient -nw
 
-set -Ux EDITOR hx
-set -g EDITOR hx
+abbr zigup zigup --install-dir ~/.zigup
+
+set -Ux EDITOR "emacsclient -c -t -s temp"
+set -g EDITOR "emacsclient -c -t -s temp"
 
 source ~/.config/fish/local.fish
 
