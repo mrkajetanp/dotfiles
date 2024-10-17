@@ -13,14 +13,14 @@
 (setq evil-shift-width 4)
 
 (set-popup-rules!
-  '(("^\\*info" :side right :size 0.38 :quit nil)
-    ("^\\*helpful" :side right :size 0.38 :select t)
-    ("^\\*Help" :side right :size 0.38)
+  '(("^\\*info" :side right :size 80 :quit nil)
+    ("^\\*helpful" :side right :size 80 :select t)
+    ("^\\*Help" :side right :size 80)
     ("^\\*eww" :ignore t)))
 
 (after! eglot
   (set-popup-rules!
-    '(("^\\*eglot-help" :side right :size 0.38 :select t))))
+    '(("^\\*eglot-help" :side right :size 95 :select t))))
 
 ;; Org mode
 (setq org-directory "~/org/")
@@ -72,6 +72,9 @@
 (add-hook 'elisp-mode-hook 'subword-mode)
 (add-hook 'c-mode-hook 'subword-mode)
 (add-hook 'python-mode-hook 'subword-mode)
+
+(add-hook 'org-mode 'auto-fill-mode)
+(add-hook 'markdown-mode 'auto-fill-mode)
 
 ;; Custom Bindings
 

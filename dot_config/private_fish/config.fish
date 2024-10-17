@@ -1,5 +1,5 @@
 if status is-interactive
-    set -gx GPG_TTY (tty)
+    # set -gx GPG_TTY (tty)
 end
 
 abbr l eza -al
@@ -41,6 +41,7 @@ abbr nm neomutt
 
 abbr em emacs -nw
 abbr ec emacsclient -nw
+abbr ect emacsclient -c -t -s temp
 
 abbr zigup zigup --install-dir ~/.zigup
 
