@@ -4,7 +4,7 @@ end
 
 abbr l eza -al
 abbr ls eza
-abbr cat bat
+abbr cat bat -p
 abbr md mkdir
 
 abbr g git
