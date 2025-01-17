@@ -11,6 +11,7 @@
 (setq auto-hscroll-mode 'current-line)
 (setq scroll-margin 5)
 (setq evil-shift-width 4)
+(setq c-basic-offset 4)
 
 (set-popup-rules!
   '(("^\\*info" :side right :size 80 :quit nil)
@@ -24,6 +25,7 @@
 
 ;; Org mode
 (setq org-directory "~/org/")
+(setq org-hierarchical-todo-statistics t)
 
 (load-library "find-lisp")
 (setq org-agenda-files
@@ -56,7 +58,6 @@
     (hack-dir-local-variables-non-file-buffer)))
 
 ;; Custom functions
-
 (defun close-buffer-and-window ()
   "Close the current buffer and the window it's in."
   (interactive)
@@ -75,6 +76,10 @@
 
 (add-hook 'org-mode 'auto-fill-mode)
 (add-hook 'markdown-mode 'auto-fill-mode)
+
+(add-hook 'cpp-mode-hook
+          (lambda ()
+            (setq-local c-basic-offset 2)))
 
 ;; Custom Bindings
 

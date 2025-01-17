@@ -45,8 +45,13 @@ abbr ect emacsclient -c -t -s temp
 
 abbr zigup zigup --install-dir ~/.zigup
 
-set -Ux EDITOR "emacsclient -c -t -s temp"
-set -g EDITOR "emacsclient -c -t -s temp"
+abbr vmfedora ssh -p 2222 kajetan@localhost
+abbr za zellij attach
+
+set -Ux EDITOR hx
+set -g EDITOR hx
+
+set LIBRARY_PATH "/usr/lib:/usr/local/lib:/opt/homebrew/opt/zstd/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
 
 source ~/.config/fish/local.fish
 
