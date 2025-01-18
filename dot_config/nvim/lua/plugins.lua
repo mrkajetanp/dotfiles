@@ -39,13 +39,9 @@ return require('packer').startup(function(use)
     use { 'neoclide/coc.nvim', branch  = 'release' }
     use 'dense-analysis/ale'
     use 'airblade/vim-gitgutter'
-    use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
     use 'jeetsukumaran/vim-pythonsense'
     use 'tpope/vim-fugitive'
 
     -- Others
-    use 'SirVer/ultisnips'
-    use 'honza/vim-snippets'
     use { "m4xshen/hardtime.nvim", requires = { 'MunifTanjim/nui.nvim' }}
-    use 'vimwiki/vimwiki'
 end)

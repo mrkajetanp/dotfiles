@@ -25,10 +25,12 @@ abbr grv git remote -v
 
 abbr nf neofetch
 abbr ff fastfetch
-abbr vim hx
+abbr vim nvim
 
 abbr fishconfig chezmoi edit ~/.config/fish/config.fish && chezmoi apply
 abbr vimconfig chezmoi edit ~/.config/nvim/init.lua && chezmoi apply
+
+abbr pkg doas pkg
 
 abbr cm chezmoi
 abbr hl hledger
@@ -47,9 +49,6 @@ abbr zigup zigup --install-dir ~/.zigup
 
 abbr vmfedora ssh -p 2222 kajetan@localhost
 abbr za zellij attach
-
-set -Ux EDITOR hx
-set -g EDITOR hx
 
 set LIBRARY_PATH "/usr/lib:/usr/local/lib:/opt/homebrew/opt/zstd/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
 
