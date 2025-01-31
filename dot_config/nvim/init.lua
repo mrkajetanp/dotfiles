@@ -173,6 +173,7 @@ end)
 vimp.nnoremap({'silent'}, '<leader>sh', ':terminal<CR>')
 
 vimp.nnoremap('<leader>at', ':ALEToggle<CR>')
+vimp.nnoremap('<leader>an', ':ALENext<CR>')
 
 -- Abbreviations
 

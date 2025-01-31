@@ -47,3 +47,12 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! eglot-booster
+  :recipe (:host github :repo "jdtsmith/eglot-booster"))
+
+(package! websocket
+  :recipe (:host github :repo "ahyatt/emacs-websocket"))
+
+(unpin! org-roam)
+(package! org-roam-ui)
