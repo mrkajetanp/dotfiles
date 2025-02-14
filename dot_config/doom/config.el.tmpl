@@ -12,6 +12,7 @@
 (setq scroll-margin 5)
 (setq evil-shift-width 4)
 (setq c-basic-offset 4)
+(setq tab-width 4)
 
 (set-popup-rules!
   '(("^\\*info" :side right :size 80 :quit nil)
@@ -135,3 +136,7 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
+
+(after! cc-mode
+  (setq c-basic-offset 4)
+  (set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy")))

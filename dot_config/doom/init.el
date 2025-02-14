@@ -134,7 +134,7 @@
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        hledger          ; ledger, but functional
-       ;;lua               ; one-based indices? one-based indices
+       (lua +lsp +tree-sitter)               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
