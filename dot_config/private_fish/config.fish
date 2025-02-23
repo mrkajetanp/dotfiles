@@ -36,8 +36,7 @@ abbr cm chezmoi
 abbr hl hledger
 abbr hlui hledger-ui -t -E
 
-abbr leiup podman run -v /Users:/Users --env HOME=$HOME -t -i public-inbox lei up --all
-abbr leishell podman run -v /Users:/Users --env HOME=$HOME -t -i public-inbox /bin/bash
+abbr leiup lei up --all
 
 abbr nm neomutt
 
@@ -48,6 +47,8 @@ abbr ect emacsclient -c -t -s temp
 abbr zigup zigup --install-dir ~/.zigup
 
 abbr vmfedora ssh -p 2222 kajetan@localhost
+abbr vmfreebsd ssh -p 2223 kajetan@localhost
+abbr vmgentoo ssh -p 2224 kajetan@localhost
 abbr za zellij attach
 
 set LIBRARY_PATH "/usr/lib:/usr/local/lib:/opt/homebrew/opt/zstd/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
