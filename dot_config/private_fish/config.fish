@@ -1,5 +1,8 @@
 if status is-interactive
-    # set -gx GPG_TTY (tty)
+    if not set -q GPG_TTY
+        set -gx GPG_TTY (tty)
+    end
+    set_onedark
 end
 
 abbr l eza -al
