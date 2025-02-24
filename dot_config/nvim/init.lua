@@ -47,7 +47,7 @@ vim.g.session_command_aliases = 1
 -- Visual settings
 -- ****************************************************************************
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('onedark')
 vim.opt.termguicolors = true
 
 -- gui & mouse settings

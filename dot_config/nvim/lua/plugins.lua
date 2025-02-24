@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
 	-- Visual plugins
 	use 'junegunn/seoul256.vim'
 	use 'morhetz/gruvbox'
+	use 'navarasu/onedark.nvim'
 	use 'frazrepo/vim-rainbow'
 	use 'liuchengxu/eleline.vim'
 

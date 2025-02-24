@@ -51,6 +51,8 @@ abbr vmfreebsd ssh -p 2223 kajetan@localhost
 abbr vmgentoo ssh -p 2224 kajetan@localhost
 abbr za zellij attach
 
+abbr cl clear
+
 set LIBRARY_PATH "/usr/lib:/usr/local/lib:/opt/homebrew/opt/zstd/lib:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
 
 source ~/.config/fish/local.fish
