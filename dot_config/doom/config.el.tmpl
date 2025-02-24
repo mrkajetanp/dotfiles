@@ -137,6 +137,10 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
-(after! cc-mode
-  (setq c-basic-offset 4)
-  (set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy")))
+(after! c-mode
+  (set-eglot-client! 'cc-mode '("clangd" "-j=4" "--clang-tidy")))
+
+(after! c++-mode
+  (set-eglot-client! 'cc-mode '("clangd" "-j=4" "--clang-tidy")))
+
+(setq-hook! 'c++-mode-hook +format-inhibit t)
