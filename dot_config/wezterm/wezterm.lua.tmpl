@@ -13,7 +13,7 @@ config.color_scheme = 'OneHalfDark'
 config.font =
   wezterm.font('JetBrains Mono', { weight = 'Medium' })
 
-config.font_size = 12.5
+config.font_size = {{ .terminal_font_size }}
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
