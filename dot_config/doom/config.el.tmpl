@@ -144,3 +144,12 @@
   (set-eglot-client! 'cc-mode '("clangd" "-j=4" "--clang-tidy")))
 
 (setq-hook! 'c++-mode-hook +format-inhibit t)
+(setq-hook! 'fortran-mode-hook +format-inhibit t)
+
+                                        ; LLVM-specific modes
+(require 'llvm-mode)
+(require 'llvm-mir-mode)
+(require 'tablegen-mode)
+(add-hook 'tablegen-mode-hook 'font-lock-mode)
+(add-hook 'llvm-mode-hook 'font-lock-mode)
+(add-hook 'llvm-mir-mode-hook 'font-lock-mode)

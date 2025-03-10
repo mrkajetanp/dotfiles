@@ -2,6 +2,7 @@ if status is-interactive
     if not set -q GPG_TTY
         set -gx GPG_TTY (tty)
     end
+    atuin init fish | source
     set_onedark
 end
 
@@ -12,6 +13,7 @@ abbr md mkdir
 
 abbr g git
 abbr gb git branch
+abbr gd git diff
 abbr gch git checkout
 abbr gsh git show
 abbr gl git pull
@@ -53,6 +55,10 @@ abbr vmfedora ssh -p 2222 kajetan@localhost
 abbr vmfreebsd ssh -p 2223 kajetan@localhost
 abbr vmgentoo ssh -p 2224 kajetan@localhost
 abbr za zellij attach
+
+abbr timev /usr/bin/time -v
+
+abbr flang flang-new-19
 
 abbr cl clear
 
