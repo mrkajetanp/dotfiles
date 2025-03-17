@@ -1,7 +1,6 @@
 if status is-interactive
-    if not set -q GPG_TTY
-        set -gx GPG_TTY (tty)
-    end
+    set -gx GPG_TTY (tty)
+    set -gx TTY $GPG_TTY
     atuin init fish | source
     set_onedark
 end
