@@ -53,7 +53,6 @@ vim.opt.termguicolors = true
 -- gui & mouse settings
 vim.cmd('set mousemodel=popup')
 vim.cmd('set t_Co=256')
-vim.cmd('set guioptions=egmrti')
 
 -- cursor settings
 vim.cmd('set guicursor+=n:hor20-Cursor/lCursor')
