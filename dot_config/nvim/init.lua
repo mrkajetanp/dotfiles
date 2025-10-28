@@ -297,8 +297,8 @@ vim.cmd([[
 
 -- Filetype-specific
 
-vim.cmd('autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab')
-vim.cmd('autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab')
+vim.cmd('autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.cmd('autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab')
 
 vim.cmd([[
   augroup vimrc-python
@@ -362,69 +362,123 @@ vim.opt.updatetime = 300
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
 
-local keyset = vim.keymap.set
--- Autocomplete
-function _G.check_back_space()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
-
--- Use Tab for trigger completion with characters ahead and navigate
--- NOTE: There's always a completion item selected by default, you may want to enable
--- no select by setting `"suggest.noselect": true` in your configuration file
--- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
--- other plugins before putting this into your config
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-
--- Make <CR> to accept selected completion item or notify coc.nvim to format
--- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-
--- Use <c-j> to trigger snippets
-keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
--- Use <c-space> to trigger completion
-keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
-
--- Use `[g` and `]g` to navigate diagnostics
--- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
-keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
-
--- GoTo code navigation
-keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
-keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
-keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
-keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
-
-
--- Use K to show documentation in preview window
-function _G.show_docs()
-    local cw = vim.fn.expand('<cword>')
-    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-    elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
-    else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-    end
-end
-keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
-
--- Symbol renaming
-keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
-
--- Formatting selected code
-keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
-keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
-
-
 -- Setup formatexpr specified filetype(s)
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "typescript,json",
     command = "setl formatexpr=CocAction('formatSelected')",
     desc = "Setup formatexpr specified filetype(s)."
+})
+
+----------------- LSP ---------------------------
+
+vim.lsp.enable('clangd')
+vim.diagnostic.config({virtual_text = true})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    if client:supports_method('textDocument/implementation') then
+      -- Create a keymap for vim.lsp.buf.implementation ...
+    end
+
+    -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+    if client:supports_method('textDocument/completion') then
+      -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+      -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+      -- client.server_capabilities.completionProvider.triggerCharacters = chars
+
+      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+    end
+
+    -- Auto-format ("lint") on save.
+    -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+    if not client:supports_method('textDocument/willSaveWaitUntil')
+        and client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+        end,
+      })
+    end
+  end,
+})
+
+-- Hide diagnostics in esaymotion mode
+local hideDiagnosticsEmGroup = vim.api.nvim_create_augroup("HideDiagnosticsDuringEasyMotion", { clear = true })
+
+local function set_diag(enabled)
+  vim.diagnostic.enable(enabled, { bufnr = 0 })
+end
+
+vim.api.nvim_create_autocmd("User", {
+  group = hideDiagnosticsEmGroup,
+  pattern = "EasyMotionPromptBegin",
+  callback = function()
+    vim.b._diag_was_enabled = vim.diagnostic.is_enabled and vim.diagnostic.is_enabled({ bufnr = 0 }) or true
+    set_diag(false)
+  end,
+})
+vim.api.nvim_create_autocmd("User", {
+  group = hideDiagnosticsEmGroup,
+  pattern = "EasyMotionPromptEnd",
+  callback = function()
+    set_diag(vim.b._diag_was_enabled ~= false)
+  end,
+})
+
+----------------- nvim-cmp ----------------------
+
+local cmp = require'cmp'
+
+cmp.setup({
+snippet = {
+  expand = function(args)
+    vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+  end,
+},
+window = {
+  -- completion = cmp.config.window.bordered(),
+  -- documentation = cmp.config.window.bordered(),
+},
+mapping = cmp.mapping.preset.insert({
+  ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  ['<C-Space>'] = cmp.mapping.complete(),
+  ['<C-e>'] = cmp.mapping.abort(),
+  ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+}),
+sources = cmp.config.sources({
+  { name = 'nvim_lsp' },
+}, {
+  { name = 'buffer' },
+})
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+mapping = cmp.mapping.preset.cmdline(),
+sources = {
+  { name = 'buffer' }
+}
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+mapping = cmp.mapping.preset.cmdline(),
+sources = cmp.config.sources({
+  { name = 'path' }
+}, {
+  { name = 'cmdline' }
+}),
+matching = { disallow_symbol_nonprefix_matching = false }
+})
+
+-- Set up lspconfig.
+vim.lsp.config('*', {
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
 })
 
 ----------------- NERDTree ----------------------

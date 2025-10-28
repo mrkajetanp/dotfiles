@@ -37,11 +37,17 @@ return require('packer').startup(function(use)
 	use 'xolox/vim-session'
 
     -- Programming
-    use { 'neoclide/coc.nvim', branch  = 'release' }
     use 'dense-analysis/ale'
     use 'airblade/vim-gitgutter'
     use 'jeetsukumaran/vim-pythonsense'
     use 'tpope/vim-fugitive'
+
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
     -- Others
     use { "m4xshen/hardtime.nvim", requires = { 'MunifTanjim/nui.nvim' }}
