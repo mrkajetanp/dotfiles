@@ -388,7 +388,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
       -- client.server_capabilities.completionProvider.triggerCharacters = chars
 
-      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = false})
     end
 
     -- Auto-format ("lint") on save.
@@ -405,6 +405,32 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+vim.lsp.config('rust_analyzer', {
+    on_attach = function(client, bufnr)
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end,
+
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+vim.lsp.enable('rust_analyzer')
 
 -- Hide diagnostics in esaymotion mode
 local hideDiagnosticsEmGroup = vim.api.nvim_create_augroup("HideDiagnosticsDuringEasyMotion", { clear = true })
