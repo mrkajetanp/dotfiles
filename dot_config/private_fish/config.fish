@@ -34,8 +34,6 @@ abbr vim nvim
 abbr fishconfig chezmoi edit ~/.config/fish/config.fish && chezmoi apply
 abbr vimconfig chezmoi edit ~/.config/nvim/init.lua && chezmoi apply
 
-abbr pkg doas pkg
-
 abbr cm chezmoi
 abbr hl hledger
 abbr hlui hledger-ui -t -E
