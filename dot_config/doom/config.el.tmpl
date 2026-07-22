@@ -10,9 +10,16 @@
 (setq fill-column 100)
 (setq auto-hscroll-mode 'current-line)
 (setq scroll-margin 5)
-(setq evil-shift-width 4)
-(setq c-basic-offset 4)
-(setq tab-width 4)
+(setq evil-shift-width 8)
+(setq c-basic-offset 8)
+(setq c-ts-mode-indent-offset 8)
+(setq c-indent-comments-syntactically-p t)
+(setq tab-width 8)
+
+(after! cc-mode
+  (c-set-offset 'statement-cont 4)
+  (c-set-offset 'arglist-cont 4)
+  (c-set-offset 'arglist-cont-nonempty 4))
 
 (set-popup-rules!
   '(("^\\*info" :side right :size 80 :quit nil)
@@ -138,11 +145,17 @@
         org-roam-ui-open-on-start t))
 
 (after! c-mode
-  (set-eglot-client! 'cc-mode '("clangd" "-j=4" "--clang-tidy")))
+  (setq tab-width 8)
+  (set-eglot-client! 'cc-mode '("clangd" "-j=4")))
 
 (after! c++-mode
-  (set-eglot-client! 'cc-mode '("clangd" "-j=4" "--clang-tidy")))
+  (set-eglot-client! 'cc-mode '("clangd" "-j=4")))
 
+(setq-hook! 'c-mode-hook +format-inhibit t)
+(setq-hook! 'c-mode-hook apheleia-inhibit t)
+(setq-hook! 'c-mode-hook indent-tabs-mode t)
+(setq-hook! 'c-ts-mode-hook apheleia-inhibit t)
+(setq-hook! 'c-ts-mode-hook indent-tabs-mode t)
 (setq-hook! 'c++-mode-hook +format-inhibit t)
 (setq-hook! 'fortran-mode-hook +format-inhibit t)
 
