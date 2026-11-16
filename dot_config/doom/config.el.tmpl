@@ -175,12 +175,15 @@
 
       ;; Keep preprocessor directives at column zero.
       (cpp-macro               . -1000)
-      (cpp-macro-cont          . 4))))
+      (cpp-macro-cont          . c-lineup-dont-change))))
 
   (setq c-default-style
         '((c-mode     . "freebsd")
           (c++-mode   . "freebsd")
           (other      . "freebsd"))))
+
+(setq c-syntactic-indentation-in-macros 'nil)
+(setq c-auto-align-backslashes 'nil)
 
 ;; ; LLVM-specific modes
 ;; (require 'llvm-mode)
