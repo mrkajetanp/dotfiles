@@ -10,7 +10,6 @@
 (setq fill-column 100)
 (setq auto-hscroll-mode 'current-line)
 (setq scroll-margin 5)
-(setq evil-shift-width 8)
 
 (set-popup-rules!
   '(("^\\*info" :side right :size 80 :quit nil)
@@ -76,7 +75,7 @@
 (add-hook 'org-mode 'auto-fill-mode)
 (add-hook 'markdown-mode 'auto-fill-mode)
 
-(add-hook 'cpp-mode-hook
+(add-hook 'c++-mode-hook
           (lambda ()
             (setq-local c-basic-offset 2)))
 
@@ -117,9 +116,6 @@
 (after! corfu-terminal
   (setq corfu-preselect 'first))
 
-(after! eglot
-  (eglot-booster-mode))
-
 (use-package! websocket
   :after org-roam)
 
@@ -135,52 +131,10 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
-(after! c-mode
-  (setq tab-width 8)
-  (set-eglot-client! 'cc-mode '("clangd" "-j=4")))
-
-(after! c++-mode
-  (set-eglot-client! 'cc-mode '("clangd" "-j=4")))
-
-(setq-hook! 'c-mode-hook +format-inhibit t)
-(setq-hook! 'c-mode-hook apheleia-inhibit t)
-(setq-hook! 'c-mode-hook indent-tabs-mode t)
-(setq-hook! 'c-ts-mode-hook apheleia-inhibit t)
-(setq-hook! 'c-ts-mode-hook indent-tabs-mode t)
-(setq-hook! 'c++-mode-hook +format-inhibit t)
-(setq-hook! 'fortran-mode-hook +format-inhibit t)
-
-(after! cc-mode
-  (c-add-style
-   "freebsd"
-   '("bsd"
-     (c-basic-offset . 8)
-     (tab-width . 8)
-     (indent-tabs-mode . t)
-     (c-offsets-alist
-      ;; Continuation lines use one half-indent: four columns.
-      (statement-cont          . 4)
-      (arglist-cont            . 4)
-      (arglist-cont-nonempty   . 4)
-
-      ;; Closing parenthesis aligns with the start of the construct.
-      (arglist-close           . 0)
-
-      ;; Labels are indented one level less than their statements.
-      (label                   . -8)
-      (case-label              . 0)
-
-      ;; Access labels in C++.
-      (access-label            . -8)
-
-      ;; Keep preprocessor directives at column zero.
-      (cpp-macro               . -1000)
-      (cpp-macro-cont          . c-lineup-dont-change))))
-
-  (setq c-default-style
-        '((c-mode     . "freebsd")
-          (c++-mode   . "freebsd")
-          (other      . "freebsd"))))
+(after! eglot
+  (add-to-list 'eglot-server-programs
+               '((c-mode c-ts-mode c++-mode c++-ts-mode objc-mode)
+                 "clangd" "-j=4" "--background-index" "--clang-tidy")))
 
 (setq c-syntactic-indentation-in-macros 'nil)
 (setq c-auto-align-backslashes 'nil)
